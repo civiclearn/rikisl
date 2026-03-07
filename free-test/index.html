@@ -261,22 +261,10 @@
           <source src="https://media.civiclearn.com/rikisborgaraprof/free-test/listening-01.mp3" type="audio/mpeg">
           Your browser does not support audio playback.
         </audio>
-        <div class="audio-note">🔊 If audio doesn't load, click "Show transcript" below.</div>
+        <div class="audio-note">🔊 You can listen as many times as you need.</div>
       </div>
 
-      <details style="margin-bottom:1.5rem">
-        <summary style="cursor:pointer;font-size:0.88rem;font-weight:600;color:var(--ice-blue);">Show transcript</summary>
-        <div class="is-text" style="margin-top:0.6rem;border-left-color:var(--ice-blue);">
-          <strong>Móttökustarfsmaður:</strong> Góðan daginn, velkomin á Heilsugæsluna Glæsibær. Get ég aðstoðað þig?<br><br>
-          <strong>Anna:</strong> Góðan daginn. Já, ég heiti Anna Kowalska. Ég er með tíma hjá doktor Magnúsdóttur klukkan tíu og hálf.<br><br>
-          <strong>Móttökustarfsmaður:</strong> Anna Kowalska... já, ég sé þig hér. Ertu með kennitöluna þína?<br><br>
-          <strong>Anna:</strong> Já, hún er 150885-2249.<br><br>
-          <strong>Móttökustarfsmaður:</strong> Takk fyrir. Doktor Magnúsdóttir er aðeins sein, hún kemur eftir um tíu mínútur. Viltu sitja niður á meðan og bíða? Það er kaffi og vatn þarna frammi.<br><br>
-          <strong>Anna:</strong> Já, takk. Er hægt að borga með korti?<br><br>
-          <strong>Móttökustarfsmaður:</strong> Já, við tökum bæði kort og reiðufé. En þú borgar eftir viðtalið hjá lækninum.<br><br>
-          <strong>Anna:</strong> Allt í lagi, takk kærlega.
-        </div>
-      </details>
+
 
       <div class="mcq" data-correct="2">
         <div class="mcq-label">1. Hvenær er tími Önnu?</div>
@@ -560,14 +548,6 @@ function showResults() {
   }
 }
 
-/* ── Audio: auto-open transcript on error ─────────── */
-var audio = document.getElementById('listeningAudio');
-if (audio) {
-  audio.addEventListener('error', function() {
-    var details = document.querySelector('#step-listening details');
-    if (details) details.open = true;
-  });
-}
 
 /* ── Footer year ──────────────────────────────────── */
 document.getElementById('footer-year').textContent = new Date().getFullYear();
