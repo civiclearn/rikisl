@@ -24,9 +24,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:     #1a6b4a;
-      --green-d:   #134f37;
-      --green-l:   #e8f5ee;
+      --green:     #003897;
+      --green-d:   #002a73;
+      --green-l:   #e8eef8;
       --ice-blue:  #1c4e80;
       --dark:      #1a1a1a;
       --grey:      #555;
@@ -77,14 +77,8 @@
     }
     .cl-logo .flag {
       width: 28px; height: 20px; border-radius: 3px;
-      background: linear-gradient(to bottom,
-        #003897 0%, #003897 32%,
-        #fff 32%, #fff 40%,
-        #d72828 40%, #d72828 60%,
-        #fff 60%, #fff 68%,
-        #003897 68%, #003897 100%);
+      object-fit: contain;
       flex-shrink: 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
     .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
     .cl-nav a {
@@ -158,7 +152,7 @@
       text-decoration: none;
       transition: background var(--transition);
     }
-    .policies-toc a:hover { background: #d0eddb; }
+    .policies-toc a:hover { background: #cddcf0; }
 
     /* Card */
     .policy-card {
@@ -230,7 +224,7 @@
   <div class="cl-header-inner">
 
     <a href="/" class="cl-logo">
-      <div class="flag"></div>
+      <img class="flag" src="/assets/images/is.svg" alt="Ísland">
       <span>Rikisborgaraprof.is</span>
     </a>
 
@@ -287,10 +281,10 @@
     <p>We use the following services to operate the platform: <strong>Supabase</strong> (database and authentication), <strong>Stripe</strong> (payments), <strong>Cloudflare</strong> (hosting and security), <strong>SMTP2GO</strong> (transactional email), and <strong>OpenAI / Anthropic</strong> (AI evaluation of writing and speaking responses). Your practice submissions may be processed by these AI providers to generate feedback — they do not retain your data for training purposes.</p>
 
     <h3>Data retention</h3>
-    <p>Your account data and practice results are retained for as long as your account is active. If you wish to delete your account and all associated data, contact us at <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> and we will process your request within 30 days.</p>
+    <p>Your account data and practice results are retained for as long as your account is active. If you wish to delete your account and all associated data, contact us at <a href="/cdn-cgi/l/email-protection#751411181c1b35161c031c16191014071b5b161a18"><span class="__cf_email__" data-cfemail="0766636a6e6947646e716e646b626675692964686a">[email&#160;protected]</span></a> and we will process your request within 30 days.</p>
 
     <h3>Your rights</h3>
-    <p>You have the right to access, correct, or delete your personal data at any time. If you are located in the EEA or Iceland, you may also have additional rights under GDPR, including the right to data portability and the right to lodge a complaint with a supervisory authority. Contact us at <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> for any data requests.</p>
+    <p>You have the right to access, correct, or delete your personal data at any time. If you are located in the EEA or Iceland, you may also have additional rights under GDPR, including the right to data portability and the right to lodge a complaint with a supervisory authority. Contact us at <a href="/cdn-cgi/l/email-protection#7b1a1f1612153b18120d1218171e1a091555181416"><span class="__cf_email__" data-cfemail="c5a4a1a8acab85a6acb3aca6a9a0a4b7abeba6aaa8">[email&#160;protected]</span></a> for any data requests.</p>
   </div>
 
 
@@ -327,7 +321,7 @@
 
     <p>We want you to be satisfied with your purchase. If you are not happy with the platform for any reason, you may request a <strong>full refund within 14 days</strong> of your purchase date — no questions asked.</p>
 
-    <p>To request a refund, email us at <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> with your account email address. Refunds are processed via Stripe to your original payment method and typically arrive within 5–10 business days.</p>
+    <p>To request a refund, email us at <a href="/cdn-cgi/l/email-protection#cbaaafa6a2a58ba8a2bda2a8a7aeaab9a5e5a8a4a6"><span class="__cf_email__" data-cfemail="58393c353136183b312e313b343d392a36763b3735">[email&#160;protected]</span></a> with your account email address. Refunds are processed via Stripe to your original payment method and typically arrive within 5–10 business days.</p>
 
     <p>After the 14-day window, refunds are granted at our discretion on a case-by-case basis. We are reasonable — if you have a genuine issue, get in touch and we'll find a solution.</p>
   </div>
@@ -359,19 +353,4 @@
 <!-- ─── FOOTER ───────────────────────────────────────────── -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>&copy; <span id="footer-year"></span> Rikisborgaraprof.is — part of the CivicLearn network.</div>
-    <div class="footer-links">
-      <a href="/free-test/">Free test</a>
-      <a href="/articles/">Articles</a>
-      <a href="/contact/">Contact</a>
-      <a href="/policies/">Policies</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.getElementById("footer-year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+    <div>&copy; <span id="footer-ye

@@ -31,9 +31,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:     #1a6b4a;
-      --green-d:   #134f37;
-      --green-l:   #e8f5ee;
+      --green:     #003897;
+      --green-d:   #002a73;
+      --green-l:   #e8eef8;
       --ice-blue:  #1c4e80;
       --ice-blue-l:#eaf1f8;
       --dark:      #1a1a1a;
@@ -86,14 +86,8 @@
     }
     .cl-logo .flag {
       width: 28px; height: 20px; border-radius: 3px;
-      background: linear-gradient(to bottom,
-        #003897 0%, #003897 32%,
-        #fff 32%, #fff 40%,
-        #d72828 40%, #d72828 60%,
-        #fff 60%, #fff 68%,
-        #003897 68%, #003897 100%);
+      object-fit: contain;
       flex-shrink: 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
     .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
     .cl-nav a {
@@ -236,7 +230,7 @@
       padding: 0.8rem 1rem;
       border-radius: 0.75rem;
     }
-    .contact-feedback.success { color: #1b7f3b; background: var(--green-l); }
+    .contact-feedback.success { color: #003897; background: var(--green-l); }
     .contact-feedback.error   { color: #b71c1c; background: #fdecea; }
 
     /* ── Footer ────────────────────────────────────────── */
@@ -269,7 +263,7 @@
   <div class="cl-header-inner">
 
     <a href="/" class="cl-logo">
-      <div class="flag"></div>
+      <img class="flag" src="/assets/images/is.svg" alt="Ísland">
       <span>Rikisborgaraprof.is</span>
     </a>
 
@@ -330,7 +324,7 @@
       </div>
 
       <div id="errorMessage" class="contact-feedback error">
-        Something went wrong. Please try again or email us directly at admin@civiclearn.com.
+        Something went wrong. Please try again or email us directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c1d181115123c1f150a151f10191d0e12521f1311">[email&#160;protected]</a>.
       </div>
 
     </form>
@@ -355,7 +349,7 @@
 
 
 <!-- ─── SCRIPT ───────────────────────────────────────────── -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -396,15 +390,4 @@ document.getElementById("contactForm").addEventListener("submit", async function
     } else {
       throw new Error("failed");
     }
-  } catch (err) {
-    error.style.display   = "block";
-    submitBtn.disabled    = false;
-    submitBtn.innerText   = originalText;
-  }
-});
-
-document.getElementById("footer-year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+  } catch (err) 

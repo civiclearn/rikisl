@@ -31,9 +31,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:     #1a6b4a;
-      --green-d:   #134f37;
-      --green-l:   #e8f5ee;
+      --green:     #003897;
+      --green-d:   #002a73;
+      --green-l:   #e8eef8;
       --ice-blue:  #1c4e80;
       --ice-blue-l:#eaf1f8;
       --dark:      #1a1a1a;
@@ -82,11 +82,8 @@
     }
     .cl-logo .flag {
       width: 28px; height: 20px; border-radius: 3px;
-      background: linear-gradient(to bottom,
-        #003897 0%, #003897 32%, #fff 32%, #fff 40%,
-        #d72828 40%, #d72828 60%, #fff 60%, #fff 68%,
-        #003897 68%, #003897 100%);
-      flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      object-fit: contain;
+      flex-shrink: 0;
     }
     .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
     .cl-nav a {
@@ -300,7 +297,7 @@
 <header class="cl-header">
   <div class="cl-header-inner">
     <a href="/" class="cl-logo">
-      <div class="flag"></div>
+      <img class="flag" src="/assets/images/is.svg" alt="Ísland">
       <span>Rikisborgaraprof.is</span>
     </a>
     <nav class="cl-nav" id="mainNav">

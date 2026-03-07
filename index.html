@@ -31,9 +31,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:     #1a6b4a;
-      --green-d:   #134f37;
-      --green-l:   #e8f5ee;
+      --green:     #003897;
+      --green-d:   #002a73;
+      --green-l:   #e8eef8;
       --ice-blue:  #1c4e80;
       --ice-blue-l:#eaf1f8;
       --fire-red:  #c0392b;
@@ -89,14 +89,8 @@
     }
     .cl-logo .flag {
       width: 28px; height: 20px; border-radius: 3px;
-      background: linear-gradient(to bottom,
-        #003897 0%, #003897 32%,
-        #fff 32%, #fff 40%,
-        #d72828 40%, #d72828 60%,
-        #fff 60%, #fff 68%,
-        #003897 68%, #003897 100%);
+      object-fit: contain;
       flex-shrink: 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
     .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
     .cl-nav a {
@@ -283,7 +277,7 @@
       font-size: 1.4rem;
       margin-bottom: 1rem;
     }
-    .exam-card:nth-child(1) .exam-card-icon { background: #e8f5ee; }
+    .exam-card:nth-child(1) .exam-card-icon { background: #e8eef8; }
     .exam-card:nth-child(2) .exam-card-icon { background: var(--ice-blue-l); }
     .exam-card:nth-child(3) .exam-card-icon { background: #fef3e8; }
     .exam-card:nth-child(4) .exam-card-icon { background: #f3e8fe; }
@@ -325,7 +319,7 @@
       padding: 3.5rem 0;
     }
     .quiz-card {
-      background: linear-gradient(135deg, #0d3b2e 0%, #1a5a3a 60%, #0f4c6e 100%);
+      background: linear-gradient(135deg, #001d4a 0%, #003897 60%, #0050c8 100%);
       border-radius: var(--radius-lg);
       padding: 3rem;
       color: #fff;
@@ -504,7 +498,7 @@
   <div class="cl-header-inner">
 
     <a href="/" class="cl-logo">
-      <div class="flag"></div>
+      <img class="flag" src="/assets/images/is.svg" alt="Ísland">
       <span>Rikisborgaraprof.is</span>
     </a>
 
