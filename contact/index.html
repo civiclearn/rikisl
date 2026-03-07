@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Ríkisborgarapróf Preparation | Rikisborgaraprof.is</title>
+
+  <meta name="description"
+    content="Get in touch with Rikisborgaraprof.is for questions about the Icelandic citizenship test, your account, or our preparation platform. We reply quickly.">
+
+  <link rel="canonical" href="https://rikisborgaraprof.is/contact/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Contact — Rikisborgaraprof.is">
+  <meta property="og:description"
+    content="Need help with the ríkisborgarapróf or your account? Write to us and we'll respond quickly.">
+  <meta property="og:url" content="https://rikisborgaraprof.is/contact/">
+  <meta property="og:image" content="https://rikisborgaraprof.is/assets/images/og-default.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Rikisborgaraprof.is">
+  <meta name="twitter:description"
+    content="Get in touch with Rikisborgaraprof.is for support or questions about the Icelandic citizenship test and our platform.">
+  <meta name="twitter:image" content="https://rikisborgaraprof.is/assets/images/og-default.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:     #1a6b4a;
+      --green-d:   #134f37;
+      --green-l:   #e8f5ee;
+      --ice-blue:  #1c4e80;
+      --ice-blue-l:#eaf1f8;
+      --dark:      #1a1a1a;
+      --grey:      #555;
+      --grey-l:    #888;
+      --border:    #e5e2db;
+      --bg:        #faf9f7;
+      --card-bg:   #fff;
+      --radius:    1rem;
+      --radius-lg: 1.5rem;
+      --shadow:    0 4px 24px rgba(0,0,0,0.07);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
+      --max-w:     1120px;
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 400;
+      color: var(--dark);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Header ───────────────────────────────────────── */
+    .cl-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .cl-header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .cl-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-weight: 700; font-size: 1.1rem; color: var(--dark);
+    }
+    .cl-logo .flag {
+      width: 28px; height: 20px; border-radius: 3px;
+      background: linear-gradient(to bottom,
+        #003897 0%, #003897 32%,
+        #fff 32%, #fff 40%,
+        #d72828 40%, #d72828 60%,
+        #fff 60%, #fff 68%,
+        #003897 68%, #003897 100%);
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .cl-nav a {
+      font-size: 0.92rem; font-weight: 500; color: var(--grey);
+      transition: color var(--transition);
+    }
+    .cl-nav a:hover, .cl-nav a.active { color: var(--dark); }
+    .cl-right { display: flex; align-items: center; gap: 1rem; }
+    .cl-powered { font-size: 0.78rem; color: var(--grey-l); }
+    .cl-powered span { font-weight: 600; color: var(--grey); }
+    .cl-btn {
+      display: inline-flex; align-items: center;
+      background: var(--green); color: #fff;
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      transition: background var(--transition), transform 0.15s;
+    }
+    .cl-btn:hover { background: var(--green-d); transform: translateY(-1px); }
+
+    .cl-burger { display: none; background: none; border: none; cursor: pointer; padding: 0.3rem; }
+    .cl-burger svg { width: 24px; height: 24px; stroke: var(--dark); }
+
+    @media (max-width: 768px) {
+      .cl-nav, .cl-powered { display: none; }
+      .cl-burger { display: block; }
+      .cl-nav.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .cl-nav.open a { padding: 0.9rem 1.5rem; border-top: 1px solid #f0eeea; }
+    }
+
+    /* ── Contact Main ─────────────────────────────────── */
+    .contact-main {
+      max-width: 600px;
+      margin: 3rem auto 5rem;
+      padding: 0 1.25rem;
+    }
+
+    .contact-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--grey);
+      text-align: center;
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 600px) {
+      .contact-card { padding: 1.5rem 1.25rem; }
+    }
+
+    .contact-form .field {
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--dark);
+      background: #fafafa;
+      transition: border-color 0.18s;
+      box-sizing: border-box;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      background: #fff;
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-submit {
+      display: block;
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+
+    .contact-submit:hover:not([disabled]) {
+      background: var(--green-d);
+      transform: translateY(-1px);
+    }
+
+    .contact-submit[disabled] {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .contact-feedback {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+      border-radius: 0.75rem;
+    }
+    .contact-feedback.success { color: #1b7f3b; background: var(--green-l); }
+    .contact-feedback.error   { color: #b71c1c; background: #fdecea; }
+
+    /* ── Footer ────────────────────────────────────────── */
+    .site-footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      font-size: 0.82rem; color: var(--grey-l);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto; padding: 0 1.25rem;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-links { display: flex; gap: 1.2rem; }
+    .footer-links a { transition: color var(--transition); }
+    .footer-links a:hover { color: var(--dark); }
+
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── HEADER ──────────────────────────────────────────── -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+
+    <a href="/" class="cl-logo">
+      <div class="flag"></div>
+      <span>Rikisborgaraprof.is</span>
+    </a>
+
+    <nav class="cl-nav" id="mainNav">
+      <a href="/free-test/">Free test</a>
+      <a href="/articles/">Articles</a>
+      <a href="/contact/" class="active">Contact</a>
+      <a href="https://civiclearn.com/rikisborgaraprof/login">Log in</a>
+    </nav>
+
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="cl-btn">Get full access</a>
+      <button class="cl-burger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ─── CONTACT ─────────────────────────────────────────── -->
+<main class="contact-main">
+
+  <h1 class="contact-title">Contact</h1>
+  <p class="contact-sub">
+    Questions about the ríkisborgarapróf, your account, or our platform?<br>
+    Write to us and we'll get back to you as soon as possible.
+  </p>
+
+  <div class="contact-card">
+
+    <form id="contactForm" class="contact-form">
+
+      <!-- Honeypot -->
+      <input type="text" name="company" tabindex="-1" autocomplete="off" style="display:none">
+
+      <div class="field">
+        <label>Name *</label>
+        <input type="text" name="name" required>
+      </div>
+
+      <div class="field">
+        <label>Email *</label>
+        <input type="email" name="_replyto" required>
+      </div>
+
+      <div class="field">
+        <label>Message *</label>
+        <textarea name="message" required placeholder="Tell us how we can help..."></textarea>
+      </div>
+
+      <button type="submit" class="contact-submit">Send message</button>
+
+      <div id="successMessage" class="contact-feedback success">
+        ✓ Your message has been sent. We'll respond as soon as possible.
+      </div>
+
+      <div id="errorMessage" class="contact-feedback error">
+        Something went wrong. Please try again or email us directly at admin@civiclearn.com.
+      </div>
+
+    </form>
+
+  </div>
+
+</main>
+
+
+<!-- ─── FOOTER ───────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>&copy; <span id="footer-year"></span> Rikisborgaraprof.is — part of the CivicLearn network.</div>
+    <div class="footer-links">
+      <a href="/free-test/">Free test</a>
+      <a href="/articles/">Articles</a>
+      <a href="/contact/">Contact</a>
+      <a href="/policies/">Policies</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ─── SCRIPT ───────────────────────────────────────────── -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  var form      = e.target;
+  var success   = document.getElementById("successMessage");
+  var error     = document.getElementById("errorMessage");
+  var submitBtn = form.querySelector('button[type="submit"]');
+
+  // Honeypot
+  if (form.querySelector('input[name="company"]').value) return;
+
+  success.style.display = "none";
+  error.style.display   = "none";
+
+  submitBtn.disabled  = true;
+  var originalText    = submitBtn.innerText;
+  submitBtn.innerText = "Sending...";
+
+  var payload = {
+    site:    window.location.hostname,
+    page:    window.location.pathname,
+    name:    form.querySelector('input[name="name"]').value,
+    email:   form.querySelector('input[name="_replyto"]').value,
+    message: form.querySelector('textarea[name="message"]').value
+  };
+
+  try {
+    var response = await fetch("https://civiclearn.app.n8n.cloud/webhook/contact", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      success.style.display      = "block";
+      submitBtn.style.display    = "none";
+      form.reset();
+    } else {
+      throw new Error("failed");
+    }
+  } catch (err) {
+    error.style.display   = "block";
+    submitBtn.disabled    = false;
+    submitBtn.innerText   = originalText;
+  }
+});
+
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

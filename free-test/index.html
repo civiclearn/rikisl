@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Free Practice Test — Ríkisborgarapróf | Rikisborgaraprof.is</title>
+  <meta name="description" content="Try a free mini-simulation of Iceland's citizenship language test. Reading, listening and writing practice at CEFR A2 level with instant results.">
+  <link rel="canonical" href="https://rikisborgaraprof.is/free-test/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Practice Test — Ríkisborgarapróf">
+  <meta property="og:description" content="Try a free mini-simulation of Iceland's citizenship language test with instant results.">
+  <meta property="og:url" content="https://rikisborgaraprof.is/free-test/">
+  <meta property="og:site_name" content="Rikisborgaraprof.is">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#1a6b4a;--green-d:#134f37;--green-l:#e8f5ee;--ice-blue:#1c4e80;--ice-blue-l:#eaf1f8;--dark:#1a1a1a;--grey:#555;--grey-l:#888;--border:#e5e2db;--bg:#faf9f7;--card-bg:#fff;--radius:1rem;--radius-lg:1.5rem;--shadow:0 4px 24px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.10);--max-w:1120px;--transition:0.2s ease}
+    html{scroll-behavior:smooth}
+    body{font-family:'Lexend',sans-serif;font-weight:400;color:var(--dark);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{color:var(--green);text-decoration:underline}a:hover{color:var(--green-d)}
+
+    /* Header */
+    .cl-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .cl-header-inner{max-width:var(--max-w);margin:0 auto;padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .cl-logo{display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:1.1rem;color:var(--dark);text-decoration:none}
+    .cl-logo .flag{width:28px;height:20px;border-radius:3px;background:linear-gradient(to bottom,#003897 0%,#003897 32%,#fff 32%,#fff 40%,#d72828 40%,#d72828 60%,#fff 60%,#fff 68%,#003897 68%,#003897 100%);flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,0.15)}
+    .cl-nav{display:flex;gap:1.5rem;align-items:center}
+    .cl-nav a{font-size:0.92rem;font-weight:500;color:var(--grey);transition:color var(--transition);text-decoration:none}
+    .cl-nav a:hover,.cl-nav a.active{color:var(--dark)}
+    .cl-right{display:flex;align-items:center;gap:1rem}
+    .cl-powered{font-size:0.78rem;color:var(--grey-l)}.cl-powered span{font-weight:600;color:var(--grey)}
+    .cl-btn{display:inline-flex;align-items:center;background:var(--green);color:#fff;font-size:0.88rem;font-weight:600;padding:0.55rem 1.2rem;border-radius:999px;transition:background var(--transition),transform 0.15s;text-decoration:none}
+    .cl-btn:hover{background:var(--green-d);transform:translateY(-1px);color:#fff}
+    .cl-burger{display:none;background:none;border:none;cursor:pointer;padding:0.3rem}.cl-burger svg{width:24px;height:24px;stroke:var(--dark)}
+    @media(max-width:768px){.cl-nav,.cl-powered{display:none}.cl-burger{display:block}.cl-nav.open{display:flex;flex-direction:column;gap:0;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:var(--shadow)}.cl-nav.open a{padding:0.9rem 1.5rem;border-top:1px solid #f0eeea}}
+
+    /* Test container */
+    .test-wrap{max-width:680px;margin:0 auto;padding:2rem 1.25rem 4rem}
+
+    /* Progress bar */
+    .progress-bar{display:flex;gap:0.4rem;margin-bottom:2rem}
+    .progress-step{flex:1;height:6px;border-radius:3px;background:#e5e2db;transition:background 0.4s}
+    .progress-step.done{background:var(--green)}
+    .progress-step.active{background:var(--ice-blue)}
+
+    /* Section card */
+    .test-card{background:var(--card-bg);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+    @media(max-width:600px){.test-card{padding:1.5rem 1.25rem}}
+
+    .section-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;padding:0.35rem 0.9rem;border-radius:999px;margin-bottom:1rem}
+    .badge-reading{background:var(--green-l);color:var(--green)}
+    .badge-listening{background:var(--ice-blue-l);color:var(--ice-blue)}
+    .badge-writing{background:#fef3e8;color:#c17a2f}
+    .badge-results{background:#f3e8fe;color:#7c3aed}
+
+    .test-card h2{font-size:1.3rem;font-weight:700;margin-bottom:0.4rem}
+    .test-card .instructions{font-size:0.9rem;color:var(--grey);margin-bottom:1.5rem;line-height:1.6}
+
+    /* Icelandic text block */
+    .is-text{background:#f8f7f4;border-left:4px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 1.5rem;margin-bottom:1.5rem;font-size:0.95rem;line-height:1.75;color:#333}
+    .is-text strong{color:var(--dark)}
+
+    /* MCQ */
+    .mcq{margin-bottom:1.2rem}
+    .mcq-label{font-size:0.92rem;font-weight:600;color:var(--dark);margin-bottom:0.5rem}
+    .mcq-options{display:flex;flex-direction:column;gap:0.4rem}
+    .mcq-opt{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 1rem;border:2px solid var(--border);border-radius:0.75rem;cursor:pointer;font-size:0.9rem;transition:all 0.15s;background:#fff}
+    .mcq-opt:hover{border-color:#ccc}
+    .mcq-opt.selected{border-color:var(--ice-blue);background:var(--ice-blue-l)}
+    .mcq-opt.correct{border-color:var(--green);background:var(--green-l)}
+    .mcq-opt.wrong{border-color:#c0392b;background:#fdecea}
+    .mcq-opt input{display:none}
+    .mcq-radio{width:18px;height:18px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+    .mcq-opt.selected .mcq-radio{border-color:var(--ice-blue)}
+    .mcq-opt.selected .mcq-radio::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--ice-blue)}
+    .mcq-opt.correct .mcq-radio{border-color:var(--green)}
+    .mcq-opt.correct .mcq-radio::after{content:'✓';font-size:0.7rem;color:var(--green);font-weight:700}
+    .mcq-opt.wrong .mcq-radio{border-color:#c0392b}
+    .mcq-opt.wrong .mcq-radio::after{content:'✗';font-size:0.7rem;color:#c0392b;font-weight:700}
+
+    /* Audio player */
+    .audio-wrap{margin-bottom:1.5rem}
+    .audio-wrap audio{width:100%;border-radius:0.5rem}
+    .audio-note{font-size:0.8rem;color:var(--grey-l);margin-top:0.4rem}
+
+    /* Writing */
+    .writing-prompt{background:#fef3e8;border-left:4px solid #c17a2f;border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 1.5rem;margin-bottom:1.2rem;font-size:0.92rem;color:#7a5a2f;line-height:1.6}
+    .writing-area{width:100%;min-height:140px;padding:1rem;border:2px solid var(--border);border-radius:0.75rem;font-size:1rem;font-family:inherit;color:var(--dark);background:#fafafa;resize:vertical;transition:border-color 0.18s}
+    .writing-area:focus{outline:none;border-color:var(--green);background:#fff}
+    .writing-count{font-size:0.78rem;color:var(--grey-l);margin-top:0.3rem;text-align:right}
+
+    /* AI feedback */
+    .ai-feedback{background:var(--green-l);border-radius:var(--radius);padding:1.5rem;margin-top:1.2rem;display:none}
+    .ai-feedback h3{font-size:1rem;font-weight:700;color:var(--green-d);margin-bottom:0.6rem}
+    .ai-feedback p{font-size:0.9rem;color:#333;line-height:1.65;margin-bottom:0.5rem}
+    .ai-feedback .score-badge{display:inline-flex;align-items:center;gap:0.3rem;background:var(--green);color:#fff;font-weight:700;font-size:0.85rem;padding:0.3rem 0.8rem;border-radius:999px;margin-bottom:0.8rem}
+    .ai-loading{text-align:center;padding:2rem;color:var(--grey);font-size:0.9rem}
+    .ai-loading .spinner{display:inline-block;width:20px;height:20px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin 0.8s linear infinite;margin-right:0.5rem;vertical-align:middle}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .ai-error{background:#fdecea;border-radius:var(--radius);padding:1rem;margin-top:1rem;font-size:0.9rem;color:#b71c1c}
+
+    /* Buttons */
+    .btn-next{display:inline-flex;align-items:center;gap:0.4rem;background:var(--green);color:#fff;font-family:inherit;font-size:1rem;font-weight:600;padding:0.85rem 2rem;border:none;border-radius:999px;cursor:pointer;transition:background var(--transition),transform 0.15s}
+    .btn-next:hover{background:var(--green-d);transform:translateY(-1px)}
+    .btn-next:disabled{opacity:0.45;cursor:not-allowed;transform:none}
+    .btn-row{display:flex;justify-content:flex-end;margin-top:1.5rem}
+
+    /* Results */
+    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+    @media(max-width:540px){.results-grid{grid-template-columns:1fr}}
+    .result-box{background:#fff;border-radius:var(--radius);padding:1.2rem;text-align:center;border:2px solid var(--border)}
+    .result-box.pass{border-color:var(--green);background:var(--green-l)}
+    .result-box.fail{border-color:#c0392b;background:#fdecea}
+    .result-box .r-icon{font-size:1.5rem;margin-bottom:0.3rem}
+    .result-box .r-label{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--grey-l);margin-bottom:0.2rem}
+    .result-box .r-score{font-size:1.5rem;font-weight:700}
+    .result-box.pass .r-score{color:var(--green)}
+    .result-box.fail .r-score{color:#c0392b}
+
+    .results-message{text-align:center;margin-bottom:2rem}
+    .results-message h3{font-size:1.2rem;font-weight:700;margin-bottom:0.4rem}
+    .results-message p{font-size:0.95rem;color:var(--grey);line-height:1.6}
+
+    .cta-card{background:linear-gradient(135deg,#0d3b2e 0%,#1a5a3a 60%,#0f4c6e 100%);border-radius:var(--radius-lg);padding:2.5rem;color:#fff;text-align:center}
+    .cta-card h3{font-size:1.4rem;font-weight:700;margin-bottom:0.5rem}
+    .cta-card p{font-size:0.95rem;opacity:0.85;margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto}
+    .btn-white{display:inline-flex;align-items:center;gap:0.4rem;background:#fff;color:var(--green);font-family:inherit;font-size:1rem;font-weight:600;padding:0.85rem 2rem;border:none;border-radius:999px;cursor:pointer;transition:transform 0.15s,box-shadow 0.2s;text-decoration:none}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.2);color:var(--green)}
+
+    /* Intro */
+    .intro-sections{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-bottom:1.5rem}
+    @media(max-width:540px){.intro-sections{grid-template-columns:1fr}}
+    .intro-sec{background:#f8f7f4;border-radius:var(--radius);padding:1rem;text-align:center}
+    .intro-sec .icon{font-size:1.5rem;margin-bottom:0.3rem}
+    .intro-sec .label{font-size:0.85rem;font-weight:600;color:var(--dark)}
+    .intro-sec .sub{font-size:0.78rem;color:var(--grey-l)}
+
+    /* hide sections */
+    .test-section{display:none}
+    .test-section.active{display:block}
+
+    /* Footer */
+    .site-footer{background:#fff;border-top:1px solid var(--border);padding:2rem 0;font-size:0.82rem;color:var(--grey-l)}
+    .footer-inner{max-width:var(--max-w);margin:0 auto;padding:0 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem}
+    .footer-links{display:flex;gap:1.2rem}.footer-links a{transition:color var(--transition);text-decoration:none;color:var(--grey-l)}.footer-links a:hover{color:var(--dark)}
+    @media(max-width:600px){.footer-inner{flex-direction:column;text-align:center}}
+  </style>
+</head>
+<body>
+
+<header class="cl-header"><div class="cl-header-inner">
+  <a href="/" class="cl-logo"><div class="flag"></div><span>Rikisborgaraprof.is</span></a>
+  <nav class="cl-nav" id="mainNav"><a href="/free-test/" class="active">Free test</a><a href="/articles/">Articles</a><a href="/contact/">Contact</a><a href="https://civiclearn.com/rikisborgaraprof/login">Log in</a></nav>
+  <div class="cl-right"><div class="cl-powered">powered by <span>CivicLearn</span></div><a href="https://civiclearn.com/rikisborgaraprof/checkout" class="cl-btn">Get full access</a>
+  <button class="cl-burger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div>
+</div></header>
+
+<main class="test-wrap">
+
+  <!-- Progress -->
+  <div class="progress-bar">
+    <div class="progress-step active" id="prog-0"></div>
+    <div class="progress-step" id="prog-1"></div>
+    <div class="progress-step" id="prog-2"></div>
+    <div class="progress-step" id="prog-3"></div>
+  </div>
+
+  <!-- ═══════ INTRO ═══════ -->
+  <div class="test-section active" id="step-intro">
+    <div class="test-card">
+      <h2>Free practice test</h2>
+      <p class="instructions">
+        Try a mini-simulation of the ríkisborgarapróf. This free test covers <strong>3 of the 4 exam sections</strong> at CEFR A2 level. It takes about 5–8 minutes.
+      </p>
+
+      <div class="intro-sections">
+        <div class="intro-sec">
+          <div class="icon">📖</div>
+          <div class="label">Reading</div>
+          <div class="sub">1 text · 3 questions</div>
+        </div>
+        <div class="intro-sec">
+          <div class="icon">🎧</div>
+          <div class="label">Listening</div>
+          <div class="sub">1 audio · 3 questions</div>
+        </div>
+        <div class="intro-sec">
+          <div class="icon">✍️</div>
+          <div class="label">Writing</div>
+          <div class="sub">1 prompt · AI feedback</div>
+        </div>
+      </div>
+
+      <p class="instructions" style="margin-bottom:0;">
+        The full exam also includes a <strong>speaking section</strong> — available with full access. Your results are shown immediately after completing all three sections.
+      </p>
+
+      <div class="btn-row">
+        <button class="btn-next" onclick="goTo('reading')">Start the test →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ READING ═══════ -->
+  <div class="test-section" id="step-reading">
+    <div class="test-card">
+      <div class="section-badge badge-reading">📖 Hluti 1 — Lesskilningur</div>
+      <h2>Lestu textann hér að neðan og svaraðu spurningunum</h2>
+      <p class="instructions">Read the Icelandic text carefully, then answer the questions — also in Icelandic. This is how the real exam works.</p>
+
+      <div class="is-text">
+        <strong>Tungumálakaffi á laugardaginn!</strong><br><br>
+        Borgarbókasafn Reykjavíkur býður alla innflytjendur á tungumálakaffi. Komdu og æfðu íslensku með okkur. Við byrjum klukkan 14:00 og ljúkum klukkan 16:00. Boðið er upp á kaffi og kökur. Enginn þarf að skrá sig fyrirfram — bara koma!<br><br>
+        <strong>Staður:</strong> Borgarbókasafnið, Tryggvagötu 15, Reykjavík.<br>
+        <strong>Dagur:</strong> Laugardagur 24. maí.
+      </div>
+
+      <div class="mcq" data-correct="1">
+        <div class="mcq-label">1. Hvað er boðið upp á?</div>
+        <div class="mcq-options">
+          <label class="mcq-opt" data-val="0"><span class="mcq-radio"></span> Tónleika á bókasafninu</label>
+          <label class="mcq-opt" data-val="1"><span class="mcq-radio"></span> Tungumálakaffi fyrir innflytjendur</label>
+          <label class="mcq-opt" data-val="2"><span class="mcq-radio"></span> Leiðsögn um Reykjavík</label>
+        </div>
+      </div>
+
+      <div class="mcq" data-correct="1">
+        <div class="mcq-label">2. Hvenær byrjar viðburðurinn?</div>
+        <div class="mcq-options">
+          <label class="mcq-opt" data-val="0"><span class="mcq-radio"></span> Klukkan 12:00</label>
+          <label class="mcq-opt" data-val="1"><span class="mcq-radio"></span> Klukkan 14:00</label>
+          <label class="mcq-opt" data-val="2"><span class="mcq-radio"></span> Klukkan 16:00</label>
+        </div>
+      </div>
+
+      <div class="mcq" data-correct="2">
+        <div class="mcq-label">3. Þarf að skrá sig fyrirfram?</div>
+        <div class="mcq-options">
+          <label class="mcq-opt" data-val="0"><span class="mcq-radio"></span> Já, með tölvupósti</label>
+          <label class="mcq-opt" data-val="1"><span class="mcq-radio"></span> Já, í síma</label>
+          <label class="mcq-opt" data-val="2"><span class="mcq-radio"></span> Nei, bara koma</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-next" id="btn-reading-next" onclick="submitReading()" disabled>Áfram í hlustun →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ LISTENING ═══════ -->
+  <div class="test-section" id="step-listening">
+    <div class="test-card">
+      <div class="section-badge badge-listening">🎧 Hluti 2 — Hlustun</div>
+      <h2>Hlustaðu á samtalið og svaraðu spurningunum</h2>
+      <p class="instructions">You will hear a conversation between a woman (Anna) and a receptionist at a health clinic. Listen carefully — you can play the audio as many times as you need.</p>
+
+      <div class="audio-wrap">
+        <audio controls preload="auto" id="listeningAudio">
+          <source src="https://media.civiclearn.com/rikisborgaraprof/free-test/listening-01.mp3" type="audio/mpeg">
+          Your browser does not support audio playback.
+        </audio>
+        <div class="audio-note">🔊 If audio doesn't load, click "Show transcript" below.</div>
+      </div>
+
+      <details style="margin-bottom:1.5rem">
+        <summary style="cursor:pointer;font-size:0.88rem;font-weight:600;color:var(--ice-blue);">Show transcript</summary>
+        <div class="is-text" style="margin-top:0.6rem;border-left-color:var(--ice-blue);">
+          <strong>Móttökustarfsmaður:</strong> Góðan daginn, velkomin á Heilsugæsluna Glæsibær. Get ég aðstoðað þig?<br><br>
+          <strong>Anna:</strong> Góðan daginn. Já, ég heiti Anna Kowalska. Ég er með tíma hjá doktor Magnúsdóttur klukkan tíu og hálf.<br><br>
+          <strong>Móttökustarfsmaður:</strong> Anna Kowalska... já, ég sé þig hér. Ertu með kennitöluna þína?<br><br>
+          <strong>Anna:</strong> Já, hún er 150885-2249.<br><br>
+          <strong>Móttökustarfsmaður:</strong> Takk fyrir. Doktor Magnúsdóttir er aðeins sein, hún kemur eftir um tíu mínútur. Viltu sitja niður á meðan og bíða? Það er kaffi og vatn þarna frammi.<br><br>
+          <strong>Anna:</strong> Já, takk. Er hægt að borga með korti?<br><br>
+          <strong>Móttökustarfsmaður:</strong> Já, við tökum bæði kort og reiðufé. En þú borgar eftir viðtalið hjá lækninum.<br><br>
+          <strong>Anna:</strong> Allt í lagi, takk kærlega.
+        </div>
+      </details>
+
+      <div class="mcq" data-correct="2">
+        <div class="mcq-label">1. Hvenær er tími Önnu?</div>
+        <div class="mcq-options">
+          <label class="mcq-opt" data-val="0"><span class="mcq-radio"></span> Klukkan tíu</label>
+          <label class="mcq-opt" data-val="1"><span class="mcq-radio"></span> Klukkan ellefu</label>
+          <label class="mcq-opt" data-val="2"><span class="mcq-radio"></span> Klukkan hálfeldlefu (10:30)</label>
+        </div>
+      </div>
+
+      <div class="mcq" data-correct="1">
+        <div class="mcq-label">2. Af hverju þarf Anna að bíða?</div>
+        <div class="mcq-options">
+          <label class="mcq-opt" data-val="0"><span class="mcq-radio"></span> Anna kom of snemma</label>
+          <label class="mcq-opt" data-val="1"><span class="mcq-radio"></span> Læknirinn er aðeins sein</label>
+          <label class="mcq-opt" data-val="2"><span class="mcq-radio"></span> Biðstofa er full</label>
+        </div>
+      </div>
+
+      <div class="mcq" data-correct="0">
+        <div class="mcq-label">3. Hvenær á Anna að borga?</div>
+        <div class="mcq-options">
+          <label class="mcq-opt" data-val="0"><span class="mcq-radio"></span> Eftir viðtalið hjá lækninum</label>
+          <label class="mcq-opt" data-val="1"><span class="mcq-radio"></span> Áður en hún hittir lækninn</label>
+          <label class="mcq-opt" data-val="2"><span class="mcq-radio"></span> Hún þarf ekki að borga</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-next" id="btn-listening-next" onclick="submitListening()" disabled>Áfram í ritun →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ WRITING ═══════ -->
+  <div class="test-section" id="step-writing">
+    <div class="test-card">
+      <div class="section-badge badge-writing">✍️ Hluti 3 — Ritun</div>
+      <h2>Skrifaðu stuttan texta á íslensku</h2>
+      <p class="instructions">Read the prompt below and write <strong>3–5 sentences</strong> in Icelandic. A2 level means simple, clear communication — minor errors are expected and okay.</p>
+
+      <div class="writing-prompt">
+        <strong>Verkefni:</strong> Vinur þinn frá útlöndum kemur til Íslands í næstu viku. Skrifaðu honum/henni stuttan skilaboð og segðu: hvernig veðrið er venjulega á þessum árstíma á Íslandi, og hvaða föt hann/hún ætti að taka með sér.
+      </div>
+
+      <textarea class="writing-area" id="writingInput" placeholder="Skrifaðu svarið þitt á íslensku hér..." oninput="updateCount()"></textarea>
+      <div class="writing-count"><span id="wordCount">0</span> words</div>
+
+      <div id="writingLoading" class="ai-loading" style="display:none">
+        <span class="spinner"></span> Evaluating your writing with AI... this takes a few seconds.
+      </div>
+
+      <div id="writingFeedback" class="ai-feedback"></div>
+      <div id="writingError" class="ai-error" style="display:none"></div>
+
+      <div class="btn-row">
+        <button class="btn-next" id="btn-writing-submit" onclick="submitWriting()" disabled>Get AI feedback →</button>
+        <button class="btn-next" id="btn-writing-next" onclick="goTo('results')" style="display:none">See my results →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ RESULTS ═══════ -->
+  <div class="test-section" id="step-results">
+    <div class="test-card">
+      <div class="section-badge badge-results">📊 Your results</div>
+      <h2>Mini-simulation complete</h2>
+
+      <div class="results-grid">
+        <div class="result-box" id="res-reading">
+          <div class="r-icon">📖</div>
+          <div class="r-label">Lesskilningur</div>
+          <div class="r-score" id="res-reading-score">—</div>
+        </div>
+        <div class="result-box" id="res-listening">
+          <div class="r-icon">🎧</div>
+          <div class="r-label">Hlustun</div>
+          <div class="r-score" id="res-listening-score">—</div>
+        </div>
+        <div class="result-box" id="res-writing">
+          <div class="r-icon">✍️</div>
+          <div class="r-label">Ritun</div>
+          <div class="r-score" id="res-writing-score">—</div>
+        </div>
+      </div>
+
+      <div class="results-message" id="results-message"></div>
+    </div>
+
+    <div class="cta-card">
+      <h3>You've tried 3 of 4 sections</h3>
+      <p>Get full access to practice all sections — including <strong>tal</strong> (speaking) with AI evaluation — across multiple complete exam simulations.</p>
+      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn-white">Get full access — ISK 6,900 →</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner">
+  <div>&copy; <span id="footer-year"></span> Rikisborgaraprof.is — part of the CivicLearn network.</div>
+  <div class="footer-links"><a href="/free-test/">Free test</a><a href="/articles/">Articles</a><a href="/contact/">Contact</a><a href="/policies/">Policies</a></div>
+</div></footer>
+
+<script>
+/* ── State ─────────────────────────────────────────── */
+var state = {
+  readingScore: 0,
+  listeningScore: 0,
+  writingScore: null,
+  writingFeedback: ''
+};
+
+/* ── Navigation ───────────────────────────────────── */
+var steps = ['intro', 'reading', 'listening', 'writing', 'results'];
+
+function goTo(name) {
+  steps.forEach(function(s) {
+    document.getElementById('step-' + s).classList.remove('active');
+  });
+  document.getElementById('step-' + name).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  var idx = steps.indexOf(name);
+  for (var i = 0; i < 4; i++) {
+    var el = document.getElementById('prog-' + i);
+    el.classList.remove('done', 'active');
+    if (i < idx) el.classList.add('done');
+    if (i === idx) el.classList.add('active');
+  }
+
+  if (name === 'results') showResults();
+}
+
+/* ── MCQ Logic ────────────────────────────────────── */
+document.querySelectorAll('.mcq-opt').forEach(function(opt) {
+  opt.addEventListener('click', function() {
+    var mcq = opt.closest('.mcq');
+    mcq.querySelectorAll('.mcq-opt').forEach(function(o) { o.classList.remove('selected'); });
+    opt.classList.add('selected');
+    checkAllAnswered();
+  });
+});
+
+function checkAllAnswered() {
+  var section = document.querySelector('.test-section.active');
+  if (!section) return;
+  var mcqs = section.querySelectorAll('.mcq');
+  var allDone = true;
+  mcqs.forEach(function(mcq) {
+    if (!mcq.querySelector('.mcq-opt.selected')) allDone = false;
+  });
+  var btn = section.querySelector('.btn-next');
+  if (btn) btn.disabled = !allDone;
+}
+
+function gradeMCQs(sectionId) {
+  var section = document.getElementById('step-' + sectionId);
+  var mcqs = section.querySelectorAll('.mcq');
+  var score = 0;
+  mcqs.forEach(function(mcq) {
+    var correct = mcq.getAttribute('data-correct');
+    var selected = mcq.querySelector('.mcq-opt.selected');
+    if (!selected) return;
+    var val = selected.getAttribute('data-val');
+    // Show correct/wrong
+    mcq.querySelectorAll('.mcq-opt').forEach(function(o) {
+      o.style.pointerEvents = 'none';
+      if (o.getAttribute('data-val') === correct) o.classList.add('correct');
+    });
+    if (val === correct) {
+      score++;
+    } else {
+      selected.classList.add('wrong');
+    }
+  });
+  return score;
+}
+
+function submitReading() {
+  state.readingScore = gradeMCQs('reading');
+  setTimeout(function() { goTo('listening'); }, 800);
+}
+
+function submitListening() {
+  state.listeningScore = gradeMCQs('listening');
+  setTimeout(function() { goTo('writing'); }, 800);
+}
+
+/* ── Writing ──────────────────────────────────────── */
+function updateCount() {
+  var text = document.getElementById('writingInput').value.trim();
+  var words = text ? text.split(/\s+/).length : 0;
+  document.getElementById('wordCount').textContent = words;
+  document.getElementById('btn-writing-submit').disabled = words < 5;
+}
+
+async function submitWriting() {
+  var text = document.getElementById('writingInput').value.trim();
+  if (!text || text.split(/\s+/).length < 5) return;
+
+  var btn = document.getElementById('btn-writing-submit');
+  var loading = document.getElementById('writingLoading');
+  var feedback = document.getElementById('writingFeedback');
+  var errorDiv = document.getElementById('writingError');
+
+  btn.disabled = true;
+  btn.style.display = 'none';
+  loading.style.display = 'block';
+  feedback.style.display = 'none';
+  errorDiv.style.display = 'none';
+
+  try {
+    var res = await fetch('https://htgliokekeaovdiafrgs.supabase.co/functions/v1/rik-free-eval', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: text,
+        prompt: 'Vinur þinn frá útlöndum kemur til Íslands í næstu viku. Skrifaðu honum/henni stuttan skilaboð og segðu: hvernig veðrið er venjulega á þessum árstíma á Íslandi, og hvaða föt hann/hún ætti að taka með sér.'
+      })
+    });
+
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var data = await res.json();
+
+    state.writingScore = data.score || 0;
+    state.writingFeedback = data.feedback || '';
+
+    var pct = Math.round((state.writingScore / 10) * 100);
+
+    feedback.innerHTML =
+      '<div class="score-badge">' + pct + '% — ' + (pct >= 60 ? 'Pass' : 'Needs work') + '</div>' +
+      '<h3>AI Feedback</h3>' +
+      '<p>' + (data.feedback || 'No feedback available.').replace(/\n/g, '</p><p>') + '</p>';
+    feedback.style.display = 'block';
+    loading.style.display = 'none';
+    document.getElementById('btn-writing-next').style.display = '';
+
+  } catch (err) {
+    loading.style.display = 'none';
+    /* Fallback: show encouraging message and let user proceed */
+    state.writingScore = -1;
+    errorDiv.textContent = 'AI evaluation is temporarily unavailable. Don\'t worry — your writing has been noted. Continue to see your reading and listening results.';
+    errorDiv.style.display = 'block';
+    document.getElementById('btn-writing-next').style.display = '';
+  }
+}
+
+/* ── Results ──────────────────────────────────────── */
+function showResults() {
+  var rPct = Math.round((state.readingScore / 3) * 100);
+  var lPct = Math.round((state.listeningScore / 3) * 100);
+
+  document.getElementById('res-reading-score').textContent = state.readingScore + '/3';
+  document.getElementById('res-listening-score').textContent = state.listeningScore + '/3';
+
+  var rBox = document.getElementById('res-reading');
+  var lBox = document.getElementById('res-listening');
+  rBox.classList.add(rPct >= 67 ? 'pass' : 'fail');
+  lBox.classList.add(lPct >= 67 ? 'pass' : 'fail');
+
+  var wBox = document.getElementById('res-writing');
+  if (state.writingScore > 0) {
+    var wPct = Math.round((state.writingScore / 10) * 100);
+    document.getElementById('res-writing-score').textContent = wPct + '%';
+    wBox.classList.add(wPct >= 60 ? 'pass' : 'fail');
+  } else if (state.writingScore === -1) {
+    document.getElementById('res-writing-score').textContent = '—';
+  } else {
+    document.getElementById('res-writing-score').textContent = '0%';
+    wBox.classList.add('fail');
+  }
+
+  var total = state.readingScore + state.listeningScore;
+  var msg = document.getElementById('results-message');
+  if (total >= 5) {
+    msg.innerHTML = '<h3>Looking good! 🎉</h3><p>You performed well on the reading and listening sections. With consistent practice across all four exam sections, you\'re on track to pass the ríkisborgarapróf.</p>';
+  } else if (total >= 3) {
+    msg.innerHTML = '<h3>A solid start 💪</h3><p>You have a basic foundation, but need more practice before the exam. Focus on building your everyday Icelandic vocabulary and listening to Icelandic regularly.</p>';
+  } else {
+    msg.innerHTML = '<h3>Keep going — every journey starts somewhere 🌱</h3><p>The ríkisborgarapróf is at A2 level, which is achievable with consistent study. Start with the free resources in our <a href="/free-resources-learn-icelandic/">study guide</a> and practice regularly.</p>';
+  }
+}
+
+/* ── Audio: auto-open transcript on error ─────────── */
+var audio = document.getElementById('listeningAudio');
+if (audio) {
+  audio.addEventListener('error', function() {
+    var details = document.querySelector('#step-listening details');
+    if (details) details.open = true;
+  });
+}
+
+/* ── Footer year ──────────────────────────────────── */
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

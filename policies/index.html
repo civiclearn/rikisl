@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Policies — Privacy, Terms &amp; Refunds | Rikisborgaraprof.is</title>
+
+  <meta name="description"
+    content="Privacy policy, terms of service, and refund policy for Rikisborgaraprof.is — Icelandic citizenship test preparation by CivicLearn.">
+
+  <link rel="canonical" href="https://rikisborgaraprof.is/policies/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Policies — Rikisborgaraprof.is">
+  <meta property="og:description"
+    content="Privacy policy, terms of service, and refund policy for Rikisborgaraprof.is.">
+  <meta property="og:url" content="https://rikisborgaraprof.is/policies/">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:     #1a6b4a;
+      --green-d:   #134f37;
+      --green-l:   #e8f5ee;
+      --ice-blue:  #1c4e80;
+      --dark:      #1a1a1a;
+      --grey:      #555;
+      --grey-l:    #888;
+      --border:    #e5e2db;
+      --bg:        #faf9f7;
+      --card-bg:   #fff;
+      --radius-lg: 1.5rem;
+      --shadow:    0 4px 24px rgba(0,0,0,0.07);
+      --max-w:     1120px;
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 400;
+      color: var(--dark);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--green); text-decoration: underline; }
+    a:hover { color: var(--green-d); }
+
+    /* ── Header ───────────────────────────────────────── */
+    .cl-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .cl-header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .cl-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-weight: 700; font-size: 1.1rem; color: var(--dark);
+      text-decoration: none;
+    }
+    .cl-logo .flag {
+      width: 28px; height: 20px; border-radius: 3px;
+      background: linear-gradient(to bottom,
+        #003897 0%, #003897 32%,
+        #fff 32%, #fff 40%,
+        #d72828 40%, #d72828 60%,
+        #fff 60%, #fff 68%,
+        #003897 68%, #003897 100%);
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .cl-nav a {
+      font-size: 0.92rem; font-weight: 500; color: var(--grey);
+      transition: color var(--transition); text-decoration: none;
+    }
+    .cl-nav a:hover, .cl-nav a.active { color: var(--dark); }
+    .cl-right { display: flex; align-items: center; gap: 1rem; }
+    .cl-powered { font-size: 0.78rem; color: var(--grey-l); }
+    .cl-powered span { font-weight: 600; color: var(--grey); }
+    .cl-btn {
+      display: inline-flex; align-items: center;
+      background: var(--green); color: #fff;
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      transition: background var(--transition), transform 0.15s;
+      text-decoration: none;
+    }
+    .cl-btn:hover { background: var(--green-d); transform: translateY(-1px); color: #fff; }
+
+    .cl-burger { display: none; background: none; border: none; cursor: pointer; padding: 0.3rem; }
+    .cl-burger svg { width: 24px; height: 24px; stroke: var(--dark); }
+
+    @media (max-width: 768px) {
+      .cl-nav, .cl-powered { display: none; }
+      .cl-burger { display: block; }
+      .cl-nav.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .cl-nav.open a { padding: 0.9rem 1.5rem; border-top: 1px solid #f0eeea; }
+    }
+
+    /* ── Policies layout ──────────────────────────────── */
+    .policies-main {
+      max-width: 740px;
+      margin: 3rem auto 5rem;
+      padding: 0 1.25rem;
+    }
+
+    .policies-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+
+    .policies-updated {
+      font-size: 0.85rem;
+      color: var(--grey-l);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Jump links */
+    .policies-toc {
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .policies-toc a {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--green);
+      background: var(--green-l);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background var(--transition);
+    }
+    .policies-toc a:hover { background: #d0eddb; }
+
+    /* Card */
+    .policy-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .policy-card { padding: 1.5rem 1.25rem; }
+    }
+
+    .policy-card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid #f0eeea;
+    }
+
+    .policy-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 1.4rem 0 0.4rem;
+    }
+
+    .policy-card p {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 0.7rem;
+    }
+
+    .policy-card p:last-child { margin-bottom: 0; }
+
+    .policy-card strong { color: var(--dark); font-weight: 600; }
+
+    /* ── Footer ────────────────────────────────────────── */
+    .site-footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      font-size: 0.82rem; color: var(--grey-l);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto; padding: 0 1.25rem;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-links { display: flex; gap: 1.2rem; }
+    .footer-links a { transition: color var(--transition); text-decoration: none; color: var(--grey-l); }
+    .footer-links a:hover { color: var(--dark); }
+
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── HEADER ──────────────────────────────────────────── -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+
+    <a href="/" class="cl-logo">
+      <div class="flag"></div>
+      <span>Rikisborgaraprof.is</span>
+    </a>
+
+    <nav class="cl-nav" id="mainNav">
+      <a href="/free-test/">Free test</a>
+      <a href="/articles/">Articles</a>
+      <a href="/contact/">Contact</a>
+      <a href="https://civiclearn.com/rikisborgaraprof/login">Log in</a>
+    </nav>
+
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="cl-btn">Get full access</a>
+      <button class="cl-burger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ─── POLICIES ─────────────────────────────────────────── -->
+<main class="policies-main">
+
+  <h1 class="policies-title">Policies</h1>
+  <p class="policies-updated">Last updated: March 2026</p>
+
+  <div class="policies-toc">
+    <a href="#privacy">Privacy policy</a>
+    <a href="#terms">Terms of service</a>
+    <a href="#refund">Refund policy</a>
+    <a href="#cookies">Cookies</a>
+  </div>
+
+
+  <!-- ── Privacy Policy ─────────────────────────────── -->
+  <div class="policy-card" id="privacy">
+    <h2>Privacy Policy</h2>
+
+    <h3>Who we are</h3>
+    <p>Rikisborgaraprof.is is operated by <strong>Testrada Pte Ltd</strong>, a company registered in Singapore. We provide online preparation tools for the Icelandic citizenship language test (ríkisborgarapróf). We are not affiliated with Mímir, Miðstöð menntunar og skólaþjónustu, or any Icelandic government body.</p>
+
+    <h3>What data we collect</h3>
+    <p>When you create an account or make a purchase, we collect your <strong>email address</strong> and, if provided, your <strong>name</strong>. When you use the platform, we store your <strong>practice results, scores, and progress data</strong> so you can track your improvement. For speaking exercises, we temporarily process <strong>audio recordings</strong> for evaluation — these are not stored permanently.</p>
+
+    <h3>Payment processing</h3>
+    <p>Payments are handled by <strong>Stripe</strong>. We never see, store, or have access to your full card number. Stripe's privacy policy applies to all payment data: <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a>.</p>
+
+    <h3>How we use your data</h3>
+    <p>We use your data to provide the service (delivering practice tests, tracking your progress, sending results), to communicate with you about your account, and to improve the platform. We do <strong>not</strong> sell, rent, or share your personal data with third parties for marketing purposes.</p>
+
+    <h3>Third-party services</h3>
+    <p>We use the following services to operate the platform: <strong>Supabase</strong> (database and authentication), <strong>Stripe</strong> (payments), <strong>Cloudflare</strong> (hosting and security), <strong>SMTP2GO</strong> (transactional email), and <strong>OpenAI / Anthropic</strong> (AI evaluation of writing and speaking responses). Your practice submissions may be processed by these AI providers to generate feedback — they do not retain your data for training purposes.</p>
+
+    <h3>Data retention</h3>
+    <p>Your account data and practice results are retained for as long as your account is active. If you wish to delete your account and all associated data, contact us at <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> and we will process your request within 30 days.</p>
+
+    <h3>Your rights</h3>
+    <p>You have the right to access, correct, or delete your personal data at any time. If you are located in the EEA or Iceland, you may also have additional rights under GDPR, including the right to data portability and the right to lodge a complaint with a supervisory authority. Contact us at <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> for any data requests.</p>
+  </div>
+
+
+  <!-- ── Terms of Service ───────────────────────────── -->
+  <div class="policy-card" id="terms">
+    <h2>Terms of Service</h2>
+
+    <h3>The service</h3>
+    <p>Rikisborgaraprof.is provides AI-powered practice simulations for the Icelandic citizenship language test. Our platform is a <strong>preparation tool only</strong> — we do not administer the official exam, guarantee any specific result, or confer any official certification.</p>
+
+    <h3>Account &amp; access</h3>
+    <p>When you purchase access, you receive a personal, non-transferable licence to use the platform. Your account is for your individual use only — sharing login credentials is not permitted. Access does not expire ("lifetime access"), meaning you retain access for as long as the platform operates.</p>
+
+    <h3>AI-generated feedback</h3>
+    <p>Writing and speaking evaluations are generated by artificial intelligence. While we strive for accuracy, AI feedback is <strong>indicative, not definitive</strong>. It should be used as a study aid alongside other preparation methods. We do not guarantee that AI scores correspond to official exam grades.</p>
+
+    <h3>Acceptable use</h3>
+    <p>You agree not to: reverse-engineer or scrape the platform, share or redistribute content or exam materials, use the service for any unlawful purpose, or create multiple accounts to circumvent payment. We reserve the right to suspend or terminate accounts that violate these terms.</p>
+
+    <h3>Intellectual property</h3>
+    <p>All content on this platform — including questions, audio, texts, and evaluations — is the property of Testrada Pte Ltd / CivicLearn and is protected by copyright. You may not reproduce, distribute, or publish any content without prior written permission.</p>
+
+    <h3>Limitation of liability</h3>
+    <p>The service is provided "as is". We make every effort to ensure quality and uptime, but we are not liable for: interruptions or technical issues, inaccuracies in AI-generated feedback, or the outcome of your official exam. Our total liability is limited to the amount you paid for the service.</p>
+
+    <h3>Changes to these terms</h3>
+    <p>We may update these terms from time to time. If we make significant changes, we will notify users by email. Continued use of the platform after changes constitutes acceptance of the updated terms.</p>
+  </div>
+
+
+  <!-- ── Refund Policy ──────────────────────────────── -->
+  <div class="policy-card" id="refund">
+    <h2>Refund Policy</h2>
+
+    <p>We want you to be satisfied with your purchase. If you are not happy with the platform for any reason, you may request a <strong>full refund within 14 days</strong> of your purchase date — no questions asked.</p>
+
+    <p>To request a refund, email us at <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> with your account email address. Refunds are processed via Stripe to your original payment method and typically arrive within 5–10 business days.</p>
+
+    <p>After the 14-day window, refunds are granted at our discretion on a case-by-case basis. We are reasonable — if you have a genuine issue, get in touch and we'll find a solution.</p>
+  </div>
+
+
+  <!-- ── Cookies ────────────────────────────────────── -->
+  <div class="policy-card" id="cookies">
+    <h2>Cookies</h2>
+
+    <p>We use a minimal number of cookies to operate the platform:</p>
+
+    <h3>Essential cookies</h3>
+    <p><strong>Authentication cookies</strong> keep you logged in while using the platform. These are strictly necessary and cannot be disabled.</p>
+
+    <h3>Analytics</h3>
+    <p>We may use simple, privacy-friendly analytics (such as Cloudflare Web Analytics) to understand how visitors use the site. These tools do not use cookies that track you across other websites and do not collect personally identifiable information.</p>
+
+    <p>We do <strong>not</strong> use advertising cookies or tracking pixels. We do not participate in any ad networks.</p>
+  </div>
+
+
+  <p style="text-align:center; font-size:0.85rem; color:var(--grey-l); margin-top:1.5rem;">
+    Questions about our policies? <a href="/contact/">Contact us</a>.
+  </p>
+
+</main>
+
+
+<!-- ─── FOOTER ───────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>&copy; <span id="footer-year"></span> Rikisborgaraprof.is — part of the CivicLearn network.</div>
+    <div class="footer-links">
+      <a href="/free-test/">Free test</a>
+      <a href="/articles/">Articles</a>
+      <a href="/contact/">Contact</a>
+      <a href="/policies/">Policies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
