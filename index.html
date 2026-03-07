@@ -268,6 +268,7 @@
       position: relative;
       overflow: hidden;
       transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
     }
     .exam-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
     .exam-card-icon {
@@ -275,7 +276,7 @@
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem;
-      margin-bottom: 1rem;
+      margin: 0 auto 1rem;
     }
     .exam-card:nth-child(1) .exam-card-icon { background: #e8eef8; }
     .exam-card:nth-child(2) .exam-card-icon { background: var(--ice-blue-l); }
@@ -303,6 +304,7 @@
       padding: 2rem;
       box-shadow: var(--shadow);
       display: flex; gap: 1rem; align-items: flex-start;
+      text-align: left;
     }
     .feature-icon {
       width: 44px; height: 44px; flex-shrink: 0;
@@ -448,7 +450,7 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 2.5rem;
     }
-    .article-body { padding: 1.2rem 1.4rem 1.5rem; }
+    .article-body { padding: 1.2rem 1.4rem 1.5rem; text-align: left; }
     .article-body .tag {
       display: inline-block; font-size: 0.72rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.06em;
@@ -612,7 +614,7 @@
 
 
 <!-- ─── FEATURES ────────────────────────────────────────── -->
-<section class="section">
+<section class="section center">
   <div class="wrap">
     <div class="section-tag">Why Rikisborgaraprof.is</div>
     <h2 class="section-title">Everything you need to pass</h2>
@@ -650,7 +652,7 @@
         <div class="feature-icon">🔊</div>
         <div>
           <h3>Clear Icelandic audio</h3>
-          <p>Listening exercises with clear Icelandic speech at the appropriate A2 level.</p>
+          <p>Listening exercises with clear Icelandic speech at A2 level — conversations, announcements, and everyday situations.</p>
         </div>
       </div>
 
@@ -797,17 +799,27 @@
         </div></div>
       </div>
 
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I get a refund?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Yes — if you're not satisfied, contact us within 14 days of purchase for a full refund. No questions asked.
+        </div></div>
+      </div>
+
     </div>
   </div>
 </section>
 
 
 <!-- ─── ARTICLES ─────────────────────────────────────────── -->
-<section class="articles-section" id="articles">
+<section class="articles-section" id="articles" style="text-align:center;">
   <div class="wrap">
     <div class="section-tag">Learn more</div>
     <h2 class="section-title">Articles &amp; guides</h2>
-    <p class="section-sub">
+    <p class="section-sub" style="margin-left:auto;margin-right:auto;">
       Tips, strategies, and everything you need to know about the Icelandic citizenship process.
     </p>
 
