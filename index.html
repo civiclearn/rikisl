@@ -563,7 +563,7 @@
       <div class="cd-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-unit">Seconds</div></div>
     </div>
     <p class="countdown-note">
-      <strong>May / June 2026</strong> — Exam locations: Reykjavík, Akureyri, Egilsstaðir &amp; Ísafjörður. Registration via <a href="https://www.mimir.is/is/nam/rikisborgaraprof" target="_blank" style="color:var(--ice-blue);text-decoration:underline;">Mímir</a>.
+      <strong>Autumn 2026 (expected November)</strong> — Autumn exams are usually held in Reykjavík &amp; Akureyri. Exact dates and registration details will be announced by the Ministry of Justice on <a href="https://island.is/islenskuprof-fyrir-rikisborgararett" target="_blank" style="color:var(--ice-blue);text-decoration:underline;">Ísland.is</a>.
     </p>
   </div>
 </section>
@@ -755,7 +755,7 @@
           <span class="arrow">▾</span>
         </button>
         <div class="faq-a"><div class="faq-a-inner">
-          The next exam session is scheduled for <strong>May / June 2026</strong>. Exams are held in Reykjavík, Akureyri, Egilsstaðir, and Ísafjörður in spring, and in Reykjavík and Akureyri in autumn. Registration is through <a href="https://www.mimir.is" target="_blank" style="color:var(--ice-blue);text-decoration:underline;">mimir.is</a> and spots are limited — don't wait until the deadline.
+          The next exam session is expected in <strong>autumn 2026 (typically November)</strong>. Exams are held twice a year — in Reykjavík, Akureyri, Egilsstaðir, and Ísafjörður in spring, and in Reykjavík and Akureyri in autumn. The Ministry of Justice is currently appointing a new exam administrator, so exact dates and registration details haven't been confirmed yet — official updates are published on <a href="https://island.is/islenskuprof-fyrir-rikisborgararett" target="_blank" style="color:var(--ice-blue);text-decoration:underline;">Ísland.is</a>. Spots are limited once registration opens — don't wait until the deadline.
         </div></div>
       </div>
 
@@ -893,9 +893,32 @@
 /* Footer year */
 document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-/* Countdown — target: 1 June 2026 (approximate exam date) */
+/* Countdown — rolls to the next expected exam session automatically.
+   Update SESSIONS when official dates are confirmed (island.is / new administrator). */
 (function () {
-  var target = new Date("2026-06-01T09:00:00+00:00").getTime();
+  var SESSIONS = [
+    { date: "2026-11-16T09:00:00+00:00", label: "Autumn 2026 (expected November)" },
+    { date: "2027-06-01T09:00:00+00:00", label: "Spring 2027 (expected May / June)" },
+    { date: "2027-11-15T09:00:00+00:00", label: "Autumn 2027 (expected November)" }
+  ];
+
+  var now0 = Date.now();
+  var next = null;
+  for (var i = 0; i < SESSIONS.length; i++) {
+    if (new Date(SESSIONS[i].date).getTime() > now0) { next = SESSIONS[i]; break; }
+  }
+
+  if (!next) {
+    /* No future session configured — hide numbers gracefully */
+    document.getElementById("countdown").style.display = "none";
+    return;
+  }
+
+  var target = new Date(next.date).getTime();
+
+  /* Keep the note's bold label in sync with the session being counted down */
+  var noteStrong = document.querySelector(".countdown-note strong");
+  if (noteStrong) noteStrong.textContent = next.label;
 
   function update() {
     var now  = Date.now();
