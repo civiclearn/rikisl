@@ -24,948 +24,341 @@
     content="Prepare for Iceland's ríkisborgarapróf with realistic AI-powered simulations. Reading, listening, writing &amp; speaking practice.">
   <meta name="twitter:image" content="https://rikisborgaraprof.is/assets/images/og-default.jpg">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ── Reset & Base ─────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green:     #003897;
-      --green-d:   #002a73;
-      --green-l:   #e8eef8;
-      --ice-blue:  #1c4e80;
-      --ice-blue-l:#eaf1f8;
-      --fire-red:  #c0392b;
-      --dark:      #1a1a1a;
-      --grey:      #555;
-      --grey-l:    #888;
-      --border:    #e5e2db;
-      --bg:        #faf9f7;
-      --card-bg:   #fff;
-      --radius:    1rem;
-      --radius-lg: 1.5rem;
-      --shadow:    0 4px 24px rgba(0,0,0,0.07);
-      --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
-      --max-w:     1120px;
-      --transition: 0.2s ease;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 400;
-      color: var(--dark);
-      background: var(--bg);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-
-    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem; }
-
-    /* ── Header ───────────────────────────────────────── */
-    .cl-header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .cl-header-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .cl-logo {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-weight: 700; font-size: 1.1rem; color: var(--dark);
-    }
-    .cl-logo .flag {
-      width: 28px; height: 20px; border-radius: 3px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    .cl-nav { display: flex; gap: 1.5rem; align-items: center; }
-    .cl-nav a {
-      font-size: 0.92rem; font-weight: 500; color: var(--grey);
-      transition: color var(--transition);
-    }
-    .cl-nav a:hover, .cl-nav a.active { color: var(--dark); }
-    .cl-right { display: flex; align-items: center; gap: 1rem; }
-    .cl-powered { font-size: 0.78rem; color: var(--grey-l); }
-    .cl-powered span { font-weight: 600; color: var(--grey); }
-    .cl-btn {
-      display: inline-flex; align-items: center;
-      background: var(--green); color: #fff;
-      font-size: 0.88rem; font-weight: 600;
-      padding: 0.55rem 1.2rem;
-      border-radius: 999px;
-      transition: background var(--transition), transform 0.15s;
-    }
-    .cl-btn:hover { background: var(--green-d); transform: translateY(-1px); }
-
-    /* ── Mobile Nav ────────────────────────────────────── */
-    .cl-burger { display: none; background: none; border: none; cursor: pointer; padding: 0.3rem; }
-    .cl-burger svg { width: 24px; height: 24px; stroke: var(--dark); }
-
-    @media (max-width: 768px) {
-      .cl-nav, .cl-powered { display: none; }
-      .cl-burger { display: block; }
-      .cl-nav.open {
-        display: flex; flex-direction: column; gap: 0;
-        position: absolute; top: 64px; left: 0; right: 0;
-        background: #fff; border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow);
-      }
-      .cl-nav.open a { padding: 0.9rem 1.5rem; border-top: 1px solid #f0eeea; }
-    }
-
-    /* ── Hero ─────────────────────────────────────────── */
-    .hero {
-      padding: 4rem 0 3rem;
-      text-align: center;
-      background: linear-gradient(170deg, #fff 0%, var(--bg) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: -100px; right: -200px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(26,107,74,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: var(--ice-blue-l); color: var(--ice-blue);
-      font-size: 0.82rem; font-weight: 600;
-      padding: 0.4rem 1rem; border-radius: 999px;
-      margin-bottom: 1.2rem;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700; line-height: 1.2;
-      color: var(--dark);
-      max-width: 720px; margin: 0 auto 1rem;
-    }
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--green), var(--ice-blue));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1.1rem; color: var(--grey);
-      max-width: 540px; margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-    .hero-ctas {
-      display: flex; gap: 0.8rem;
-      justify-content: center; flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: var(--green); color: #fff;
-      font-family: inherit; font-size: 1rem; font-weight: 600;
-      padding: 0.85rem 1.8rem; border: none;
-      border-radius: 999px; cursor: pointer;
-      transition: background var(--transition), transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: transparent; color: var(--dark);
-      font-family: inherit; font-size: 1rem; font-weight: 500;
-      padding: 0.85rem 1.8rem;
-      border: 2px solid var(--border); border-radius: 999px;
-      cursor: pointer; transition: all var(--transition);
-    }
-    .btn-secondary:hover { border-color: var(--dark); }
-
-    /* ── Device Mockup ────────────────────────────────── */
-    .hero-devices {
-      max-width: 880px; margin: 0 auto;
-    }
-    .devices-img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.12));
-    }
-
-    /* ── Countdown ─────────────────────────────────────── */
-    .countdown-section {
-      padding: 2rem 0 3.5rem;
-      text-align: center;
-    }
-    .countdown-label {
-      font-size: 0.88rem; font-weight: 600;
-      color: var(--grey-l); text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.8rem;
-    }
-    .countdown-row {
-      display: flex; justify-content: center; gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-    .cd-box {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1rem 1.2rem;
-      min-width: 80px;
-      text-align: center;
-    }
-    .cd-num {
-      font-size: 1.8rem; font-weight: 700; color: var(--ice-blue);
-      line-height: 1.1;
-    }
-    .cd-unit { font-size: 0.72rem; color: var(--grey-l); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
-    .countdown-note {
-      margin-top: 1rem;
-      font-size: 0.85rem; color: var(--grey-l);
-    }
-    .countdown-note strong { color: var(--dark); font-weight: 600; }
-
-    /* ── Section shared ────────────────────────────────── */
-    .section { padding: 3.5rem 0; }
-    .section-tag {
-      font-size: 0.78rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--green); margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-size: clamp(1.5rem, 3.5vw, 2rem);
-      font-weight: 700; color: var(--dark);
-      margin-bottom: 0.6rem;
-    }
-    .section-sub {
-      font-size: 1rem; color: var(--grey);
-      max-width: 560px; margin-bottom: 2rem;
-    }
-    .section.center { text-align: center; }
-    .section.center .section-sub { margin-left: auto; margin-right: auto; }
-
-    /* ── Exam Components ──────────────────────────────── */
-    .exam-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-    .exam-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 1.8rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-align: center;
-    }
-    .exam-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .exam-card-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin: 0 auto 1rem;
-    }
-    .exam-card:nth-child(1) .exam-card-icon { background: #e8eef8; }
-    .exam-card:nth-child(2) .exam-card-icon { background: var(--ice-blue-l); }
-    .exam-card:nth-child(3) .exam-card-icon { background: #fef3e8; }
-    .exam-card:nth-child(4) .exam-card-icon { background: #f3e8fe; }
-    .exam-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .exam-card p { font-size: 0.88rem; color: var(--grey); line-height: 1.6; }
-    .exam-card .is-label {
-      display: inline-block;
-      font-size: 0.72rem; font-weight: 600;
-      color: var(--grey-l); background: #f5f4f0;
-      padding: 0.2rem 0.6rem; border-radius: 999px;
-      margin-bottom: 0.6rem;
-    }
-
-    /* ── Features ──────────────────────────────────────── */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.2rem;
-    }
-    .feature-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      display: flex; gap: 1rem; align-items: flex-start;
-      text-align: left;
-    }
-    .feature-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      border-radius: 10px;
-      background: var(--green-l);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-    }
-    .feature-card h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .feature-card p { font-size: 0.85rem; color: var(--grey); line-height: 1.55; }
-
-    /* ── Quiz CTA ─────────────────────────────────────── */
-    .quiz-section {
-      padding: 3.5rem 0;
-    }
-    .quiz-card {
-      background: linear-gradient(135deg, #001d4a 0%, #003897 60%, #0050c8 100%);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      color: #fff;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .quiz-card::before {
-      content: '';
-      position: absolute; top: -50%; right: -20%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .quiz-card h2 {
-      font-size: 1.6rem; font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .quiz-card p {
-      font-size: 1rem; opacity: 0.8;
-      max-width: 480px; margin: 0 auto 1.5rem;
-    }
-    .btn-white {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: #fff; color: var(--green);
-      font-family: inherit; font-size: 1rem; font-weight: 600;
-      padding: 0.85rem 2rem; border: none;
-      border-radius: 999px; cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.2s;
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
-    /* ── Pricing ───────────────────────────────────────── */
-    .pricing-section { padding: 3.5rem 0; text-align: center; }
-    .pricing-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      max-width: 440px; margin: 0 auto;
-      overflow: hidden;
-    }
-    .pricing-top {
-      padding: 2.5rem 2rem 1.5rem;
-    }
-    .pricing-label {
-      font-size: 0.82rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--grey-l);
-      margin-bottom: 0.6rem;
-    }
-    .pricing-price {
-      font-size: 3rem; font-weight: 700; color: var(--dark);
-      line-height: 1;
-    }
-    .pricing-price .currency { font-size: 1.2rem; font-weight: 600; vertical-align: super; }
-    .pricing-note {
-      font-size: 0.85rem; color: var(--grey-l);
-      margin-top: 0.4rem;
-    }
-    .pricing-features {
-      list-style: none; text-align: left;
-      padding: 0 2rem 1.5rem;
-    }
-    .pricing-features li {
-      font-size: 0.9rem; color: var(--grey);
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #f5f4f0;
-      display: flex; align-items: center; gap: 0.6rem;
-    }
-    .pricing-features li:last-child { border-bottom: none; }
-    .pricing-features .check {
-      color: var(--green); font-size: 1rem; flex-shrink: 0;
-    }
-    .pricing-bottom {
-      padding: 0 2rem 2.5rem;
-    }
-    .pricing-bottom .btn-primary { width: 100%; justify-content: center; font-size: 1.05rem; padding: 1rem; }
-
-    /* ── FAQ ───────────────────────────────────────────── */
-    .faq-section { padding: 3.5rem 0; text-align: center; }
-    .faq-list { max-width: 680px; margin: 0 auto; text-align: left; }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-q {
-      display: flex; justify-content: space-between; align-items: center;
-      width: 100%; background: none; border: none;
-      font-family: inherit; font-size: 1rem; font-weight: 600;
-      color: var(--dark); text-align: left;
-      padding: 1.2rem 0; cursor: pointer;
-      transition: color var(--transition);
-    }
-    .faq-q:hover { color: var(--green); }
-    .faq-q .arrow {
-      font-size: 1.2rem; color: var(--grey-l);
-      transition: transform 0.25s;
-    }
-    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-    .faq-a-inner {
-      padding: 0 0 1.2rem;
-      font-size: 0.9rem; color: var(--grey); line-height: 1.65;
-    }
-
-    /* ── Articles ──────────────────────────────────────── */
-    .articles-section { padding: 3.5rem 0; }
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
-    }
-    .article-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .article-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .article-thumb {
-      height: 160px;
-      background: linear-gradient(135deg, var(--green-l), var(--ice-blue-l));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem;
-    }
-    .article-body { padding: 1.2rem 1.4rem 1.5rem; text-align: left; }
-    .article-body .tag {
-      display: inline-block; font-size: 0.72rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--green); margin-bottom: 0.5rem;
-    }
-    .article-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.4; }
-    .article-body p { font-size: 0.82rem; color: var(--grey); line-height: 1.55; }
-    .articles-more {
-      text-align: center; margin-top: 1.8rem;
-    }
-
-    /* ── Footer ────────────────────────────────────────── */
-    .site-footer {
-      background: #fff;
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      font-size: 0.82rem; color: var(--grey-l);
-    }
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto; padding: 0 1.25rem;
-      display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 0.8rem;
-    }
-    .footer-links { display: flex; gap: 1.2rem; }
-    .footer-links a { transition: color var(--transition); }
-    .footer-links a:hover { color: var(--dark); }
-
-    /* ── Utilities ─────────────────────────────────────── */
-    @media (max-width: 600px) {
-      .hero { padding: 2.5rem 0 2rem; }
-      .hero h1 { font-size: 1.8rem; }
-      .device-laptop { max-width: 100%; }
-      .quiz-card { padding: 2rem 1.5rem; }
-      .pricing-top { padding: 2rem 1.5rem 1.2rem; }
-      .pricing-features { padding: 0 1.5rem 1.2rem; }
-      .pricing-bottom { padding: 0 1.5rem 2rem; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=12">
 </head>
-
 <body>
 
-<!-- ─── HEADER ──────────────────────────────────────────── -->
-<header class="cl-header">
-  <div class="cl-header-inner">
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" class="logo logo-long"><img alt="IS" src="/assets/images/is.svg"/><span>Rikisborgaraprof.is</span></a>
 
-    <a href="/" class="cl-logo">
-      <img class="flag" src="/assets/images/is.svg" alt="Ísland">
-      <span>Rikisborgaraprof.is</span>
-    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"
+      onclick="var o=document.getElementById('hdr').classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
 
-    <nav class="cl-nav" id="mainNav">
+    <nav class="nav" id="site-nav">
       <a href="/free-test/">Free test</a>
       <a href="/articles/">Articles</a>
       <a href="/contact/">Contact</a>
       <a href="https://civiclearn.com/rikisborgaraprof/login">Log in</a>
     </nav>
 
-    <div class="cl-right">
-      <div class="cl-powered">powered by <span>CivicLearn</span></div>
-      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="cl-btn">Get full access</a>
-      <button class="cl-burger" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+    <div class="hdr-right">
+      <div class="powered">
+        <div>powered by <b>CivicLearn</b></div>
+        <a class="tp" href="https://www.trustpilot.com/review/civiclearn.com" target="_blank" rel="noopener" aria-label="CivicLearn on Trustpilot: rated 4.5 out of 5">
+          <span class="tp-stars" aria-hidden="true">
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="12.5" height="25" fill="#00b67a"/><rect x="12.5" width="12.5" height="25" fill="#dcdce6"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+          </span>
+          <span class="tp-word">Trustpilot</span>
+        </a>
+      </div>
+      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn btn-primary">Get full access</a>
     </div>
-
   </div>
 </header>
 
+<main>
 
-<!-- ─── HERO ────────────────────────────────────────────── -->
+<!-- HERO (next exam session counter above, then text + mockup) -->
 <section class="hero">
-  <div class="wrap">
-
-    <div class="hero-badge">🇮🇸 CEFR A2 · Icelandic citizenship test</div>
-
-    <h1>Pass the <em>Ríkisborgarapróf</em> with confidence</h1>
-
-    <p class="hero-sub">
-      AI-powered practice for Iceland's citizenship language test. Realistic simulations of all 4 sections — reading, listening, writing &amp; speaking.
-    </p>
-
-    <div class="hero-ctas">
-      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn-primary">
-        Start preparing now →
-      </a>
-      <a href="/free-test/" class="btn-secondary">
-        Try free sample
-      </a>
+  <div class="wrap hero-status">
+    <section class="exam-status exam-status-wide" aria-label="Next exam session">
+      <div class="exam-status-inner">
+        <div class="exam-status-row">
+          <div class="exam-status-counter" id="is-counter">
+            <span class="count-number" id="cd-days">—</span>
+            <span class="count-unit">DAYS</span>
+          </div>
+          <div class="exam-status-text">
+            <p class="exam-status-sentence">Next exam session: <strong id="is-session">Autumn 2026 (expected November)</strong>. Autumn exams are usually held in Reykjavík &amp; Akureyri.</p>
+          </div>
+        </div>
+        <div class="exam-status-row">
+          <div class="exam-status-counter">
+            <span class="count-number">A2</span>
+            <span class="count-unit">LEVEL</span>
+          </div>
+          <div class="exam-status-text">
+            <p class="exam-status-sentence">Exact dates and registration details will be announced by the Ministry of Justice on <a href="https://island.is/islenskuprof-fyrir-rikisborgararett" target="_blank" rel="noopener">Ísland.is</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">CEFR A2 · Icelandic citizenship test</span>
+      <h1><span>Pass the Ríkisborgarapróf</span> with confidence</h1>
+      <p class="hero-sub">AI-powered practice for Iceland's citizenship language test. Realistic simulations of all 4 sections — reading, listening, writing &amp; speaking.</p>
+      <div class="hero-ctas">
+        <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn btn-primary" id="hero-cta">Start preparing now</a>
+        <a href="/free-test/" class="btn btn-ghost">Try free sample</a>
+      </div>
+      <p class="hero-meta"><strong>ISK&nbsp;6.900 once</strong> · lifetime access · no subscription</p>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <strong>Excellent</strong>
+        <span>Thousands of candidates prepared with the CivicLearn network.</span>
+      </div>
     </div>
-
-    <div class="hero-devices">
-      <img src="/assets/images/devices-is-sg.webp" alt="Ríkisborgarapróf practice platform shown on laptop and mobile" class="devices-img">
+    <div class="hero-img">
+      <img src="/assets/images/devices-is-sg.webp" alt="Ríkisborgarapróf practice platform shown on laptop and mobile" width="2953" height="1885" fetchpriority="high" decoding="async">
     </div>
-
   </div>
 </section>
 
-
-<!-- ─── COUNTDOWN ───────────────────────────────────────── -->
-<section class="countdown-section">
+<!-- THE EXAM: 4 SECTIONS -->
+<section class="section feat-v2">
   <div class="wrap">
-    <div class="countdown-label">Next exam session</div>
-    <div class="countdown-row" id="countdown">
-      <div class="cd-box"><div class="cd-num" id="cd-days">--</div><div class="cd-unit">Days</div></div>
-      <div class="cd-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-unit">Hours</div></div>
-      <div class="cd-box"><div class="cd-num" id="cd-mins">--</div><div class="cd-unit">Minutes</div></div>
-      <div class="cd-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-unit">Seconds</div></div>
-    </div>
-    <p class="countdown-note">
-      <strong>Autumn 2026 (expected November)</strong> — Autumn exams are usually held in Reykjavík &amp; Akureyri. Exact dates and registration details will be announced by the Ministry of Justice on <a href="https://island.is/islenskuprof-fyrir-rikisborgararett" target="_blank" style="color:var(--ice-blue);text-decoration:underline;">Ísland.is</a>.
-    </p>
-  </div>
-</section>
-
-
-<!-- ─── EXAM COMPONENTS ─────────────────────────────────── -->
-<section class="section center">
-  <div class="wrap">
-    <div class="section-tag">The exam</div>
-    <h2 class="section-title">4 equally weighted sections</h2>
-    <p class="section-sub">
-      The ríkisborgarapróf tests your Icelandic at CEFR A2 level across four skills. Each section carries equal weight — you must pass overall to qualify.
-    </p>
-
-    <div class="exam-grid">
-
-      <div class="exam-card">
-        <div class="exam-card-icon">📖</div>
-        <div class="is-label">Lesskilningur</div>
+    <div class="section-head"><span class="kicker">The exam</span><h2>4 equally weighted sections</h2><p>The ríkisborgarapróf tests your Icelandic at CEFR A2 level across four skills. Each section carries equal weight — you must pass overall to qualify.</p></div>
+    <div class="features features-4">
+      <div class="feature feature-top">
+        <span class="feat-badge">A2</span>
         <h3>Reading</h3>
-        <p>Understand simple texts about everyday life, notices, and short articles in Icelandic.</p>
+        <p><em>Lesskilningur.</em> Understand simple texts about everyday life, notices, and short articles in Icelandic.</p>
       </div>
-
-      <div class="exam-card">
-        <div class="exam-card-icon">🎧</div>
-        <div class="is-label">Hlustun</div>
+      <div class="feature feature-top">
+        <span class="feat-badge">A2</span>
         <h3>Listening</h3>
-        <p>Follow conversations and announcements on familiar topics like work, school, and daily routines.</p>
+        <p><em>Hlustun.</em> Follow conversations and announcements on familiar topics like work, school, and daily routines.</p>
       </div>
-
-      <div class="exam-card">
-        <div class="exam-card-icon">✍️</div>
-        <div class="is-label">Ritun</div>
+      <div class="feature feature-top">
+        <span class="feat-badge">A2</span>
         <h3>Writing</h3>
-        <p>Write short, simple texts — postcards, messages, and everyday notes in Icelandic.</p>
+        <p><em>Ritun.</em> Write short, simple texts — postcards, messages, and everyday notes in Icelandic.</p>
       </div>
-
-      <div class="exam-card">
-        <div class="exam-card-icon">🗣️</div>
-        <div class="is-label">Tal</div>
+      <div class="feature feature-top">
+        <span class="feat-badge">A2</span>
         <h3>Speaking</h3>
-        <p>Participate in simple conversations about familiar topics and daily situations.</p>
+        <p><em>Tal.</em> Participate in simple conversations about familiar topics and daily situations.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ─── FEATURES ────────────────────────────────────────── -->
-<section class="section center">
+<!-- FEATURES -->
+<section class="section feat-v2">
   <div class="wrap">
-    <div class="section-tag">Why Rikisborgaraprof.is</div>
-    <h2 class="section-title">Everything you need to pass</h2>
-    <p class="section-sub">
-      Practice with AI-powered simulations that mirror the real exam format, then get instant feedback.
-    </p>
-
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <div>
-          <h3>Realistic exam simulations</h3>
-          <p>Full-length practice tests that replicate the actual ríkisborgarapróf format and difficulty level.</p>
-        </div>
+    <div class="section-head"><span class="kicker">Why Rikisborgaraprof.is</span><h2>Everything you need to pass</h2><p>Practice with AI-powered simulations that mirror the real exam format, then get instant feedback.</p></div>
+    <div class="features">
+      <div class="feature">
+        <img src="/assets/images/1.svg" alt="">
+        <h3>Realistic exam simulations</h3>
+        <p>Full-length practice tests that replicate the actual ríkisborgarapróf format and difficulty level.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🤖</div>
-        <div>
-          <h3>AI-powered evaluation</h3>
-          <p>Get instant, detailed feedback on your writing and speaking — with specific tips to improve.</p>
-        </div>
+      <div class="feature">
+        <img src="/assets/images/2.svg" alt="">
+        <h3>AI-powered evaluation</h3>
+        <p>Get instant, detailed feedback on your writing and speaking — with specific tips to improve.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div>
-          <h3>Track your progress</h3>
-          <p>See your scores improve over time. Know exactly where you stand before exam day.</p>
-        </div>
+      <div class="feature">
+        <img src="/assets/images/3.svg" alt="">
+        <h3>Track your progress</h3>
+        <p>See your scores improve over time. Know exactly where you stand before exam day.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🔊</div>
-        <div>
-          <h3>Clear Icelandic audio</h3>
-          <p>Listening exercises with clear Icelandic speech at A2 level — conversations, announcements, and everyday situations.</p>
-        </div>
+      <div class="feature">
+        <img src="/assets/images/4.svg" alt="">
+        <h3>Clear Icelandic audio</h3>
+        <p>Listening exercises with clear Icelandic speech at A2 level — conversations, announcements, and everyday situations.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📱</div>
-        <div>
-          <h3>Practice anywhere</h3>
-          <p>Works on any device — laptop, tablet, or phone. Your progress syncs across all devices.</p>
-        </div>
+      <div class="feature">
+        <img src="/assets/images/5.svg" alt="">
+        <h3>Practice anywhere</h3>
+        <p>Works on any device — laptop, tablet, or phone. Your progress syncs across all devices.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <div>
-          <h3>Instant results</h3>
-          <p>No waiting for a teacher. Get your scores and corrections within minutes of finishing.</p>
-        </div>
+      <div class="feature">
+        <img src="/assets/images/6.svg" alt="">
+        <h3>Instant results</h3>
+        <p>No waiting for a teacher. Get your scores and corrections within minutes of finishing.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ─── QUIZ CTA ────────────────────────────────────────── -->
-<section class="quiz-section">
+<!-- FREE TEST -->
+<section class="notice-wrap">
   <div class="wrap">
-    <div class="quiz-card">
+    <div class="notice">
+      <span class="notice-badge">Free test</span>
       <h2>How ready are you?</h2>
-      <p>Take a free diagnostic quiz and find out your current level before you start preparing.</p>
-      <a href="/free-test/" class="btn-white">
-        Take the free test →
-      </a>
+      <div class="notice-body"><p>Take a free diagnostic quiz and find out your current level before you start preparing.</p></div>
+      <a href="/free-test/" class="btn btn-primary">Take the free test</a>
     </div>
   </div>
 </section>
 
-
-<!-- ─── PRICING ─────────────────────────────────────────── -->
-<section class="pricing-section" id="pricing">
+<!-- PRICING -->
+<section class="section pricing-v2" id="pricing">
   <div class="wrap">
-    <div class="section-tag">Simple pricing</div>
-    <h2 class="section-title">One price. Full access.</h2>
-    <p class="section-sub" style="margin-left:auto;margin-right:auto;">
-      No subscriptions, no hidden fees. Pay once — practice until you pass.
-    </p>
-
-    <div class="pricing-card">
-      <div class="pricing-top">
-        <div class="pricing-label">Full access</div>
-        <div class="pricing-price">
-          <span class="currency">ISK</span> 6.900
-        </div>
-        <div class="pricing-note">One-time payment · Lifetime access</div>
+    <div class="section-head center">
+      <span class="kicker">Simple pricing</span>
+      <h2>One price. Full access.</h2>
+    </div>
+    <div class="price-card">
+      <div class="price-left">
+        <span class="price-tag">Full access</span>
+        <div class="price-amount">ISK&nbsp;6.900<small>one time</small></div>
+        <p class="price-sub">One-time payment · Lifetime access</p>
+        <a class="btn btn-primary" href="https://civiclearn.com/rikisborgaraprof/checkout">Get full access</a>
+        <p class="price-note">No subscriptions, no hidden fees. Pay once — practice until you pass.</p>
       </div>
-
-      <ul class="pricing-features">
-        <li><span class="check">✓</span> All exam simulations — reading, listening, writing &amp; speaking</li>
-        <li><span class="check">✓</span> AI-powered evaluation with detailed feedback</li>
-        <li><span class="check">✓</span> Progress tracking across all sections</li>
-        <li><span class="check">✓</span> New simulations added regularly</li>
-        <li><span class="check">✓</span> Works on all devices — laptop, tablet &amp; phone</li>
-        <li><span class="check">✓</span> Access from any country</li>
-      </ul>
-
-      <div class="pricing-bottom">
-        <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn-primary">
-          Get full access →
-        </a>
+      <div class="price-right">
+        <h3>What you get</h3>
+        <ul class="checks">
+          <li>All exam simulations — reading, listening, writing &amp; speaking</li>
+          <li>AI-powered evaluation with detailed feedback</li>
+          <li>Progress tracking across all sections</li>
+          <li>New simulations added regularly</li>
+          <li>Works on all devices — laptop, tablet &amp; phone</li>
+          <li>Access from any country</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ─── FAQ ──────────────────────────────────────────────── -->
-<section class="faq-section center" id="faq">
-  <div class="wrap">
-    <div class="section-tag">FAQ</div>
-    <h2 class="section-title">Common questions</h2>
-    <p class="section-sub" style="margin-left:auto;margin-right:auto;">
-      Everything you need to know about the ríkisborgarapróf and our platform.
-    </p>
-
+<!-- FAQ -->
+<section class="section" style="padding-top:0" id="faq">
+  <div class="wrap faq-grid">
+    <div class="section-head"><span class="kicker">FAQ</span><h2>Common questions</h2><p>Everything you need to know about the ríkisborgarapróf and our platform. Anything else? <a href="/contact/">Write to us</a>.</p></div>
     <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What is the ríkisborgarapróf?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          The ríkisborgarapróf is Iceland's citizenship language test — a mandatory Icelandic proficiency exam for anyone applying for Icelandic citizenship. It tests your Icelandic at CEFR A2 level across four equally weighted sections: reading (lesskilningur), listening (hlustun), writing (ritun), and speaking (tal). The exam is held twice a year (spring and autumn) and is administered by Mímir on behalf of Miðstöð menntunar og skólaþjónustu.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          When is the next exam?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          The next exam session is expected in <strong>autumn 2026 (typically November)</strong>. Exams are held twice a year — in Reykjavík, Akureyri, Egilsstaðir, and Ísafjörður in spring, and in Reykjavík and Akureyri in autumn. The Ministry of Justice is currently appointing a new exam administrator, so exact dates and registration details haven't been confirmed yet — official updates are published on <a href="https://island.is/islenskuprof-fyrir-rikisborgararett" target="_blank" style="color:var(--ice-blue);text-decoration:underline;">Ísland.is</a>. Spots are limited once registration opens — don't wait until the deadline.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How much does the actual exam cost?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          The official exam fee is <strong>40,000 ISK</strong>, payable at the time of registration through Mímir. Registration is not valid until payment is confirmed. There are no refunds after registration.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What level of Icelandic do I need?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          The exam is set at <strong>CEFR A2</strong> level, which corresponds to the final goals of basic Icelandic courses for foreigners (240 hours of instruction). At this level, you should be able to handle everyday situations — at work, school, and in daily life — and participate in conversations about familiar topics.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How does your platform help me prepare?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          We provide realistic, full-length exam simulations that cover all four sections of the ríkisborgarapróf. Our AI evaluates your writing and speaking responses instantly, giving you detailed scores and specific feedback. You can track your progress over time and identify exactly which areas need more work — all from any device.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is this an official exam provider?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          No. Rikisborgaraprof.is is an independent preparation platform — we are not affiliated with Mímir, Miðstöð menntunar og skólaþjónustu, or any government body. We provide practice materials and AI-powered simulations to help you prepare. The official exam is administered exclusively by Mímir.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can I get a refund?
-          <span class="arrow">▾</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">
-          Yes — if you're not satisfied, contact us within 14 days of purchase for a full refund. No questions asked.
-        </div></div>
-      </div>
-
+      <details><summary>What is the ríkisborgarapróf?</summary><p>The ríkisborgarapróf is Iceland's citizenship language test — a mandatory Icelandic proficiency exam for anyone applying for Icelandic citizenship. It tests your Icelandic at CEFR A2 level across four equally weighted sections: reading (lesskilningur), listening (hlustun), writing (ritun), and speaking (tal). The exam is held twice a year (spring and autumn) and is administered by Mímir on behalf of Miðstöð menntunar og skólaþjónustu.</p></details>
+      <details><summary>When is the next exam?</summary><p>The next exam session is expected in <strong>autumn 2026 (typically November)</strong>. Exams are held twice a year — in Reykjavík, Akureyri, Egilsstaðir, and Ísafjörður in spring, and in Reykjavík and Akureyri in autumn. The Ministry of Justice is currently appointing a new exam administrator, so exact dates and registration details haven't been confirmed yet — official updates are published on <a href="https://island.is/islenskuprof-fyrir-rikisborgararett" target="_blank" rel="noopener">Ísland.is</a>. Spots are limited once registration opens — don't wait until the deadline.</p></details>
+      <details><summary>How much does the actual exam cost?</summary><p>The official exam fee is <strong>40,000 ISK</strong>, payable at the time of registration through Mímir. Registration is not valid until payment is confirmed. There are no refunds after registration.</p></details>
+      <details><summary>What level of Icelandic do I need?</summary><p>The exam is set at <strong>CEFR A2</strong> level, which corresponds to the final goals of basic Icelandic courses for foreigners (240 hours of instruction). At this level, you should be able to handle everyday situations — at work, school, and in daily life — and participate in conversations about familiar topics.</p></details>
+      <details><summary>How does your platform help me prepare?</summary><p>We provide realistic, full-length exam simulations that cover all four sections of the ríkisborgarapróf. Our AI evaluates your writing and speaking responses instantly, giving you detailed scores and specific feedback. You can track your progress over time and identify exactly which areas need more work — all from any device.</p></details>
+      <details><summary>Is this an official exam provider?</summary><p>No. Rikisborgaraprof.is is an independent preparation platform — we are not affiliated with Mímir, Miðstöð menntunar og skólaþjónustu, or any government body. We provide practice materials and AI-powered simulations to help you prepare. The official exam is administered exclusively by Mímir.</p></details>
+      <details><summary>Can I get a refund?</summary><p>Yes — if you're not satisfied, contact us within 14 days of purchase for a full refund. No questions asked.</p></details>
     </div>
   </div>
 </section>
 
-
-<!-- ─── ARTICLES ─────────────────────────────────────────── -->
-<section class="articles-section" id="articles" style="text-align:center;">
+<!-- ARTICLES -->
+<section class="section" style="padding-top:0" id="articles">
   <div class="wrap">
-    <div class="section-tag">Learn more</div>
-    <h2 class="section-title">Articles &amp; guides</h2>
-    <p class="section-sub" style="margin-left:auto;margin-right:auto;">
-      Tips, strategies, and everything you need to know about the Icelandic citizenship process.
-    </p>
-
-    <!-- PASSPORT RANKING STRIP — Learn more (further-reading pointer → ranking page) -->
-    <a href="https://civiclearn.com/passport-ranking"
-       style="display:flex;align-items:center;gap:14px;max-width:820px;margin:0 auto 24px;padding:13px 22px;background:#fff;border:1px solid #e5e1da;border-left:3px solid #7c3aed;border-radius:12px;text-decoration:none;color:#1d2230;text-align:left;transition:border-color .15s,box-shadow .15s;"
-       onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'"
-       onmouseout="this.style.borderColor='#e5e1da';this.style.borderLeftColor='#7c3aed';this.style.boxShadow='none'">
-      <span style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PASSPORT RANKING</span>
-      <span style="flex:1 1 auto;min-width:0;font-size:.86rem;line-height:1.45;color:#555;text-align:left;">
-        <strong style="color:#1a1a2e;">Iceland has the world's most resilient passport</strong> — safest and most climate-ready on Earth.
-      </span>
-      <span style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">See the ranking &rarr;</span>
-    </a>
-
+    <div class="section-head"><span class="kicker">Learn more</span><h2>Articles &amp; guides</h2><p>Tips, strategies, and everything you need to know about the Icelandic citizenship process.</p></div>
     <div class="articles-grid">
-
       <a href="/what-is-the-rikisborgaraprof/" class="article-card">
-        <div class="article-thumb">🇮🇸</div>
-        <div class="article-body">
-          <div class="tag">Exam guide</div>
-          <h3>What is the Ríkisborgarapróf? Complete guide to Iceland's citizenship test</h3>
-          <p>Everything you need to know — format, sections, scoring, registration, and how to prepare.</p>
-        </div>
+        <span class="kicker" style="display:block;margin-bottom:8px">Exam guide</span>
+        <h3>What is the Ríkisborgarapróf? Complete guide to Iceland's citizenship test</h3>
+        <p>Everything you need to know — format, sections, scoring, registration, and how to prepare.</p>
       </a>
-
       <a href="/cefr-a2-icelandic/" class="article-card">
-        <div class="article-thumb">📘</div>
-        <div class="article-body">
-          <div class="tag">Language level</div>
-          <h3>What does CEFR A2 mean for Icelandic?</h3>
-          <p>Understand exactly what's expected at A2 level and how to know when you're ready.</p>
-        </div>
+        <span class="kicker" style="display:block;margin-bottom:8px">Language level</span>
+        <h3>What does CEFR A2 mean for Icelandic?</h3>
+        <p>Understand exactly what's expected at A2 level and how to know when you're ready.</p>
       </a>
-
       <a href="/icelandic-citizenship-requirements/" class="article-card">
-        <div class="article-thumb">📋</div>
-        <div class="article-body">
-          <div class="tag">Citizenship</div>
-          <h3>Icelandic citizenship requirements in 2026</h3>
-          <p>Residency, language test, application fees, and the full process explained step by step.</p>
-        </div>
+        <span class="kicker" style="display:block;margin-bottom:8px">Citizenship</span>
+        <h3>Icelandic citizenship requirements in 2026</h3>
+        <p>Residency, language test, application fees, and the full process explained step by step.</p>
       </a>
-
     </div>
-
-    <div class="articles-more">
-      <a href="/articles/" class="btn-secondary">Browse all articles →</a>
-    </div>
-
+    <p class="articles-more"><a href="/articles/">Browse all articles →</a></p>
   </div>
 </section>
 
+<!-- CLOSING CTA -->
+<section class="closing-wrap" style="padding:24px 0 40px">
+  <div class="wrap">
+    <div class="closing">
+      <div>
+        <h2>Ready to pass the Ríkisborgarapróf?</h2>
+        <p>Realistic simulations of all 4 sections with AI evaluation and instant feedback. ISK&nbsp;6.900, once.</p>
+      </div>
+      <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn btn-primary">Start preparing now</a>
+    </div>
+  </div>
+</section>
 
-<!-- ─── FOOTER ───────────────────────────────────────────── -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>&copy; <span id="footer-year"></span> Rikisborgaraprof.is — part of the CivicLearn network.</div>
-    <div class="footer-links">
+<!-- RANKING + DEVICES -->
+<section style="padding:24px 0 0">
+  <div class="wrap">
+    <a class="rank" href="https://civiclearn.com/passport-ranking">
+      <span class="rank-tag">PASSPORT RANKING</span>
+      <span><strong>Iceland has the world's most resilient passport</strong> — safest and most climate-ready on Earth.</span>
+      <span class="rank-go">See the ranking →</span>
+    </a>
+    <div class="devices" aria-label="Compatible with all modern devices and browsers">
+      <span><img src="/assets/images/logos/windows.svg" alt="">Windows</span>
+      <span><img src="/assets/images/logos/macos.svg" alt="">macOS</span>
+      <span><img src="/assets/images/logos/android.svg" alt="">Android</span>
+      <span><img src="/assets/images/logos/ios.svg" alt="">iPhone / iPad</span>
+      <span><img src="/assets/images/logos/chrome.svg" alt="">Chrome</span>
+      <span><img src="/assets/images/logos/safari.svg" alt="">Safari</span>
+      <span><img src="/assets/images/logos/firefox.svg" alt="">Firefox</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>© <span id="footer-year"></span> Rikisborgaraprof.is — part of the CivicLearn network.</div>
+    <nav>
       <a href="https://civiclearn.com/insights">Insights</a>
       <a href="/free-test/">Free test</a>
       <a href="/articles/">Articles</a>
       <a href="/contact/">Contact</a>
       <a href="/policies/">Policies</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
+<!-- Mobile sticky CTA (appears once the hero button scrolls away, hides over pricing) -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <span><b>ISK&nbsp;6.900 once</b>Lifetime access</span>
+  <a href="https://civiclearn.com/rikisborgaraprof/checkout" class="btn btn-primary" tabindex="-1">Get started</a>
+</div>
 
-<!-- ─── SCRIPTS ──────────────────────────────────────────── -->
 <script>
 /* Footer year */
 document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-/* Countdown — rolls to the next expected exam session automatically.
+/* Next exam session — days to go. Rolls to the next expected session automatically.
    Update SESSIONS when official dates are confirmed (island.is / new administrator). */
 (function () {
   var SESSIONS = [
-    { date: "2026-11-16T09:00:00+00:00", label: "Autumn 2026 (expected November)" },
-    { date: "2027-06-01T09:00:00+00:00", label: "Spring 2027 (expected May / June)" },
-    { date: "2027-11-15T09:00:00+00:00", label: "Autumn 2027 (expected November)" }
+    { date: "2026-11-16T09:00:00+00:00", label: "Autumn 2026 (expected November)", note: "Autumn exams are usually held in Reykjavík & Akureyri." },
+    { date: "2027-06-01T09:00:00+00:00", label: "Spring 2027 (expected May / June)", note: "Spring exams are usually held in Reykjavík, Akureyri, Egilsstaðir & Ísafjörður." },
+    { date: "2027-11-15T09:00:00+00:00", label: "Autumn 2027 (expected November)", note: "Autumn exams are usually held in Reykjavík & Akureyri." }
   ];
-
-  var now0 = Date.now();
-  var next = null;
+  var now = Date.now(), next = null;
   for (var i = 0; i < SESSIONS.length; i++) {
-    if (new Date(SESSIONS[i].date).getTime() > now0) { next = SESSIONS[i]; break; }
+    if (new Date(SESSIONS[i].date).getTime() > now) { next = SESSIONS[i]; break; }
   }
-
-  if (!next) {
-    /* No future session configured — hide numbers gracefully */
-    document.getElementById("countdown").style.display = "none";
-    return;
+  var counter = document.getElementById("is-counter");
+  if (!next) { if (counter) counter.style.display = "none"; return; }
+  var lab = document.getElementById("is-session");
+  if (lab) {
+    lab.textContent = next.label;
+    lab.nextSibling.textContent = ". " + next.note;
   }
-
-  var target = new Date(next.date).getTime();
-
-  /* Keep the note's bold label in sync with the session being counted down */
-  var noteStrong = document.querySelector(".countdown-note strong");
-  if (noteStrong) noteStrong.textContent = next.label;
-
-  function update() {
-    var now  = Date.now();
-    var diff = target - now;
-
-    if (diff <= 0) {
-      document.getElementById("cd-days").textContent  = "0";
-      document.getElementById("cd-hours").textContent = "0";
-      document.getElementById("cd-mins").textContent  = "0";
-      document.getElementById("cd-secs").textContent  = "0";
-      return;
-    }
-
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-
-    document.getElementById("cd-days").textContent  = d;
-    document.getElementById("cd-hours").textContent = h;
-    document.getElementById("cd-mins").textContent  = m;
-    document.getElementById("cd-secs").textContent  = s;
-  }
-
-  update();
-  setInterval(update, 1000);
+  var days = Math.max(0, Math.ceil((new Date(next.date).getTime() - now) / 86400000));
+  document.getElementById("cd-days").textContent = days;
 })();
-
-/* FAQ accordion */
-function toggleFaq(btn) {
-  var item = btn.parentElement;
-  var answer = item.querySelector('.faq-a');
-  var isOpen = item.classList.contains('open');
-
-  /* Close all */
-  document.querySelectorAll('.faq-item.open').forEach(function (el) {
-    el.classList.remove('open');
-    el.querySelector('.faq-a').style.maxHeight = null;
-  });
-
-  if (!isOpen) {
-    item.classList.add('open');
-    answer.style.maxHeight = answer.scrollHeight + 'px';
-  }
-}
 </script>
-
+<script>
+(function(){
+  var s=document.getElementById('sticky-cta'), h=document.getElementById('hero-cta'), p=document.getElementById('pricing'), q=document.getElementById('questions-demo');
+  if(!('IntersectionObserver' in window)||!s||!h) return;
+  var heroGone=false, priceVisible=false, quizVisible=false;
+  function upd(){var on=heroGone&&!priceVisible&&!quizVisible;s.classList.toggle('show',on);s.setAttribute('aria-hidden',on?'false':'true');}
+  new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd();}).observe(h);
+  if(p) new IntersectionObserver(function(e){priceVisible=e[0].isIntersecting;upd();},{threshold:.15}).observe(p);
+  if(q) new IntersectionObserver(function(e){quizVisible=e[0].isIntersecting;upd();},{threshold:.05}).observe(q);
+})();
+</script>
 </body>
 </html>
